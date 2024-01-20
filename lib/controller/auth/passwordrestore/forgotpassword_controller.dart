@@ -1,0 +1,75 @@
+import 'package:cool_alert/cool_alert.dart';
+import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/data/datasource/remote/forgetpassword/checkemail_data.dart';
+
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+
+import '../../../core/constant/color.dart';
+import '../../../core/functions/handlingdatacontroller.dart';
+
+abstract class ForgotPasswordController extends GetxController {
+  goToVerifyCode();
+}
+
+class ForgotPasswordControllerImp extends ForgotPasswordController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
+  late TextEditingController email;
+  StatusRequest statusRequest = StatusRequest.none;
+  CheckEmailData checkEmailData = CheckEmailData(Get.find());
+
+  @override
+  goToVerifyCode() async {
+    var formdata = formState.currentState;
+    if (formdata!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await checkEmailData.postdata(
+        email.text,
+      );
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          print(response['status']);
+          Get.offAndToNamed(AppRoutes.verifyCode,
+              arguments: {"email": email.text});
+        } else {
+          update();
+          // Get.defaultDialog(title: "Warning", middleText: "Email not found");
+          CoolAlert.show(
+              context: Get.overlayContext!,
+              type: CoolAlertType.warning,
+              text: "Email not found",
+              confirmBtnColor: AppColor.primaryColor,
+              onConfirmBtnTap: () {
+                statusRequest = StatusRequest.failure;
+                update();
+              });
+          return statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
+    } else {
+      print("Not Valid");
+    }
+    // TODO: implement toSignUp
+    throw UnimplementedError();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    email = TextEditingController();
+
+    super.onInit();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    email.dispose();
+
+    super.dispose();
+  }
+}

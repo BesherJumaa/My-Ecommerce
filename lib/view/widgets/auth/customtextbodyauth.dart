@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+import '../../../core/constant/color.dart';
+
+class CustomTextBodyAuth extends StatelessWidget {
+  final String? body;
+  const CustomTextBodyAuth({super.key, required this.body});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      margin: const EdgeInsets.only(top: 15),
+      child: Text(
+        body!,
+        style: const TextStyle(color: AppColor.gray),
+      ),
+    );
+  }
+}

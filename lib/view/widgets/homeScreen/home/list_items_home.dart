@@ -1,8 +1,11 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/core/functions/translate_database.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import '../../../../core/constant/color.dart';
+import '../../../../core/constant/imageassets.dart';
 import '../../../../linkapi.dart';
 
 class ListItemsHome extends GetView<HomeControllerImp> {
@@ -35,7 +38,7 @@ class ItemsHome extends GetView<HomeControllerImp> {
       child: Stack(
         children: [
           Positioned(
-            top: 10,
+            top: 15,
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
               child: Image.network(
@@ -43,6 +46,36 @@ class ItemsHome extends GetView<HomeControllerImp> {
                 height: 100,
                 width: 150,
                 fit: BoxFit.fill,
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  } else {
+                    // While the image is still loading, show a loading indicator
+                    return Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 12),
+                        width: 100, // Adjust the width as needed
+                        height: 100, // Adjust the height as needed
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  (loadingProgress.expectedTotalBytes ?? 1)
+                              : null,
+                        ),
+                      ),
+                    );
+                  }
+                },
+                errorBuilder: (BuildContext context, Object error,
+                    StackTrace? stackTrace) {
+                  // Handle the error, e.g., show a placeholder or default image
+                  return Center(
+                      heightFactor: 100,
+                      widthFactor: 150,
+                      child: Lottie.asset(AppImageAssets.server));
+                },
               ),
             ),
           ),
@@ -51,18 +84,18 @@ class ItemsHome extends GetView<HomeControllerImp> {
             margin: const EdgeInsets.symmetric(horizontal: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: AppColor.black.withOpacity(0.2),
+              color: AppColor.black.withOpacity(0.05),
             ),
             height: 130,
             width: 170,
           ),
           Positioned(
-              left: 10,
-              // height: 40,
-              child: Text(
-                "${itemsModel.itemsName}",
-                style: const TextStyle(color: AppColor.white),
-              ))
+            left: 10,
+            child: Text(
+              "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
+              style: const TextStyle(color: AppColor.black),
+            ),
+          )
         ],
       ),
     );

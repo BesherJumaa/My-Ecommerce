@@ -18,6 +18,7 @@ import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
   //Main Page
+  // GetPage(name: "/", page: () => const Language()), //Main Page
   GetPage(
       name: "/", page: () => const Language(), middlewares: [MyMiddleware()]),
   //HomePage

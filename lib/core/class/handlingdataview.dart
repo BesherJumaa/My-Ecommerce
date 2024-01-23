@@ -27,8 +27,17 @@ class HandlingDataView extends StatelessWidget {
         : statusRequest == StatusRequest.offlineFailure
             ? Center(child: Lottie.asset(AppImageAssets.offline))
             : statusRequest == StatusRequest.failure
-                ? Center(
-                    child: Lottie.asset(AppImageAssets.noData, repeat: false),
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Center(
+                        child: Text("Empty Data"),
+                      ),
+                      Center(
+                        child:
+                            Lottie.asset(AppImageAssets.noData, repeat: false),
+                      ),
+                    ],
                   )
                 : statusRequest == StatusRequest.serverFailure
                     ? Center(

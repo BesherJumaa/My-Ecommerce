@@ -8,6 +8,7 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
+  late PageController pageController;
   List<Widget> listPage = [
     const HomePage(),
     const Column(
@@ -37,8 +38,25 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
   @override
+  void onInit() {
+    pageController = PageController(initialPage: currentPage);
+    super.onInit();
+  }
+
+  @override
   changePage(int i) {
     currentPage = i;
+    pageController.animateToPage(
+      i,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
     update();
+  }
+
+  @override
+  void onClose() {
+    pageController.dispose();
+    super.onClose();
   }
 }

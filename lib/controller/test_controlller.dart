@@ -19,7 +19,7 @@ class TestController extends GetxController {
       if (response['status'] == "success") {
         data.addAll(response['data']);
       } else {
-        return statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.failure;
       }
     }
     update();

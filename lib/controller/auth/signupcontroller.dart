@@ -58,16 +58,15 @@ class SignUpControllerImp extends SignUpController {
               text: Strings.existed,
               onConfirmBtnTap: () {
                 statusRequest = StatusRequest.failure;
-                update();
               });
-          return statusRequest = StatusRequest.failure;
+          statusRequest = StatusRequest.failure;
         }
       }
       update();
     } else {
       print("Not Valid");
     }
-
+    update();
     throw UnimplementedError();
   }
 

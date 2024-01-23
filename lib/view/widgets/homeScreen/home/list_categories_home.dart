@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/color.dart';
+import '../../../../core/functions/translate_database.dart';
 import '../../../../data/model/categories_model.dart';
 import '../../../../linkapi.dart';
 
@@ -44,22 +45,36 @@ class CategoriesHome extends GetView<HomeControllerImp> {
     // TODO: implement build
     return InkWell(
       onTap: () {
-        controller.goToCategory(controller.categories, index);
+        controller.goToCategory(
+            controller.categories, index, categoriesModel.categoriesId);
       },
       child: Column(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            height: 70,
+            height: 60,
             width: 70,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: AppColor.thirdColor,
             ),
             child: SvgPicture.network(
-                "${AppLink.imageCategories}/${categoriesModel.categoriesImage}"),
+              placeholderBuilder: (BuildContext context) {
+                return Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 12),
+                    width: 60, // Adjust the width as needed
+                    height: 70, // Adjust the height as needed
+                    child: const CircularProgressIndicator(),
+                  ),
+                );
+              },
+              "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
+            ),
           ),
-          Text(categoriesModel.categoriesName!),
+          Text(translateDatabase(categoriesModel.categoriesNameAr!,
+              categoriesModel.categoriesName!)),
           const SizedBox(
             height: 10,
           ),

@@ -10,7 +10,7 @@ abstract class HomeController extends GetxController {
   initialData();
   getData();
   goToItems(List items, selectedItem);
-  goToCategory(List categories, selectedcat);
+  goToCategory(List categories, selectedcat, categoryId);
 }
 
 class HomeControllerImp extends HomeController {
@@ -22,8 +22,10 @@ class HomeControllerImp extends HomeController {
   late StatusRequest statusRequest;
   String? username;
   String? id, phone;
+  String? lang;
   @override
   initialData() {
+    lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
     phone = myServices.sharedPreferences.getString("phone");
@@ -47,7 +49,7 @@ class HomeControllerImp extends HomeController {
         categories.addAll(response['categories']);
         items.addAll(response['items']);
       } else {
-        return statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.failure;
       }
     }
     update();
@@ -60,8 +62,11 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  goToCategory(categories, selectedcat) {
-    Get.toNamed(AppRoutes.items,
-        arguments: {"categories": categories, "selectedcat": selectedcat});
+  goToCategory(categories, selectedcat, categoryId) {
+    Get.toNamed(AppRoutes.items, arguments: {
+      "categories": categories,
+      "selectedcat": selectedcat,
+      "categoryId": categoryId
+    });
   }
 }

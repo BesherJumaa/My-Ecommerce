@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:ecommercecourse/controller/auth/passwordrestore/verifycode_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/view/widgets/Auth/customtextbodyauth.dart';

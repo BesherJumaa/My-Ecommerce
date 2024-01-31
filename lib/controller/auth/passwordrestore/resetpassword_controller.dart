@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_print
+
 import 'package:cool_alert/cool_alert.dart';
-import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/forgetpassword/resetpassword_data.dart';
 

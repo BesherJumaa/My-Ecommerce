@@ -14,6 +14,7 @@ class AppLink {
   static const String signUp = "$server/auth/signup.php";
   static const String verifycode = "$server/auth/verifycode.php";
   static const String signIn = "$server/auth/signin.php";
+  static const String resend = "$server/auth/resend.php";
 
   //--------------resetPassword=============
   static const String checkEmail = "$server/forgetpassword/checkemail.php";
@@ -27,4 +28,10 @@ class AppLink {
   static const String home = "$server/home.php";
   //----------items-------
   static const String items = "$server/items/items.php";
+  //--------favorite---------
+  static const String favoriteAdd = "$server/favorite/add.php";
+  static const String favoriteRemove = "$server/favorite/remove.php";
+  static const String favoriteView = "$server/favorite/view.php";
+  static const String deleteFavorite =
+      "$server/favorite/deleteFromFavorite.php";
 }

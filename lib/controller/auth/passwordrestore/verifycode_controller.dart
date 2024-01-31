@@ -1,12 +1,11 @@
 import 'package:cool_alert/cool_alert.dart';
-import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/forgetpassword/verifycodepassword_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/functions/handlingdatacontroller.dart';
-import '../../../view/widgets/auth/custombuttonauth.dart';
 
 abstract class VerifyCodeController extends GetxController {
   checkCode();

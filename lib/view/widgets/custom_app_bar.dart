@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
+import '../../core/constant/routes.dart';
 import 'auth/customstextform.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final String? titleAppBar;
   final void Function()? onPressedIcon;
+
   final void Function()? onPressedSearch;
-  const CustomSearchBar(
-      {super.key, this.titleAppBar, this.onPressedIcon, this.onPressedSearch});
+  const CustomSearchBar({
+    super.key,
+    this.titleAppBar,
+    this.onPressedIcon,
+    this.onPressedSearch,
+  });
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -28,6 +35,15 @@ class CustomSearchBar extends StatelessWidget {
           onPressed: onPressedIcon,
           icon: const Icon(
             Icons.notifications_active_outlined,
+          ),
+          color: AppColor.primaryColor,
+        ),
+        IconButton(
+          onPressed: () {
+            Get.toNamed(AppRoutes.myFavorite);
+          },
+          icon: const Icon(
+            Icons.favorite_border_outlined,
           ),
           color: AppColor.primaryColor,
         ),

@@ -1,12 +1,17 @@
+// ignore_for_file: avoid_print, unused_local_variable
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
+import 'package:ecommercecourse/data/model/user_model.dart';
+import 'package:ecommercecourse/linkapi.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/class/StatusRequest.dart';
+import '../../core/class/status_request.dart';
 import '../../core/constant/color.dart';
 import '../../core/functions/handlingdatacontroller.dart';
 import '../../data/datasource/remote/auth/login_data.dart';
@@ -15,6 +20,7 @@ abstract class LoginController extends GetxController {
   login();
   toSignUp();
   toForgotPassword();
+  logOut();
 }
 
 class LoginControllerImp extends LoginController {
@@ -24,12 +30,24 @@ class LoginControllerImp extends LoginController {
 
   late TextEditingController email;
   late TextEditingController password;
-
+  late UserModel userModel = UserModel();
   RxBool secure = true.obs;
 
   StatusRequest statusRequest = StatusRequest.none;
 
   MyServices myServices = Get.find();
+  @override
+  void onInit() {
+    userModel = UserModel();
+    FirebaseMessaging.instance.getToken().then((value) {
+      print("Token is : ");
+      print(value);
+      String? token = value;
+    });
+    email = TextEditingController();
+    password = TextEditingController();
+    super.onInit();
+  }
 
   showPassword() {
     secure = secure == true.obs ? false.obs : true.obs;
@@ -46,21 +64,38 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          // data.addAll(response['data']);
-          myServices.sharedPreferences
-              .setString("id", response['data']['users_id']);
-          myServices.sharedPreferences
-              .setString("username", response['data']['users_name']);
-          myServices.sharedPreferences
-              .setString("email", response['data']['users_email']);
-          myServices.sharedPreferences
-              .setString("phone", response['data']['users_phone']);
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoutes.homePage);
+          if (response['data']['users_approve'] == "1") {
+            userModel = UserModel.fromJson(response['data']);
+            // data.addAll(response['data']);
+            myServices.sharedPreferences.setString("id", userModel.usersId!);
+            myServices.sharedPreferences
+                .setString("username", userModel.usersName!);
+            myServices.sharedPreferences
+                .setString("email", userModel.usersEmail!);
+            myServices.sharedPreferences
+                .setString("phone", userModel.usersPhone!);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.rawSnackbar(
+                title:
+                    "Welcome ${myServices.sharedPreferences.getString("username")} !",
+                icon: const Icon(
+                  Icons.check_box,
+                  color: AppColor.green,
+                ),
+                messageText: Text("57".tr),
+                backgroundColor: AppColor.primaryColor,
+                isDismissible: true);
+            Get.offNamed(AppRoutes.homePage);
+          } else {
+            statusRequest = StatusRequest.success;
+            Get.toNamed(AppRoutes.verifyCodeSignUp,
+                arguments: {"email": email.text});
+          }
         } else {
           CoolAlert.show(
             context: Get.overlayContext!,
-            type: CoolAlertType.info,
+            type: CoolAlertType.error,
+            backgroundColor: AppColor.primaryColor,
             confirmBtnColor: AppColor.primaryColor,
             text: "Email Or Password Not Correct",
           );
@@ -79,18 +114,6 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-  void onInit() {
-    FirebaseMessaging.instance.getToken().then((value) {
-      print("Token is : ");
-      print(value);
-      String? token = value;
-    });
-    email = TextEditingController();
-    password = TextEditingController();
-    super.onInit();
-  }
-
-  @override
   void dispose() {
     email.dispose();
     password.dispose();
@@ -100,5 +123,78 @@ class LoginControllerImp extends LoginController {
   @override
   toForgotPassword() {
     Get.toNamed(AppRoutes.forgotPassword);
+  }
+
+  @override
+  logOut() {
+    CoolAlert.show(
+      context: Get.context!,
+      cancelBtnText: "62".tr,
+      confirmBtnText: "61".tr,
+      showCancelBtn: true,
+      backgroundColor: AppColor.primaryColor,
+      animType: CoolAlertAnimType.rotate,
+      borderRadius: BorderSide.strokeAlignCenter,
+      type: CoolAlertType.warning,
+      loopAnimation: true,
+      confirmBtnColor: AppColor.primaryColor,
+      title: "63".tr,
+      // text: "64".tr,
+      onConfirmBtnTap: () async {
+        myServices.sharedPreferences.setString("step", "1");
+        if (myServices.sharedPreferences.getString("step") == "1") {
+          Get.rawSnackbar(
+            title: "32".tr,
+            backgroundColor: AppColor.primaryColor,
+            icon: const Icon(
+              Icons.logout_outlined,
+              color: AppColor.white,
+            ),
+            messageText: Text(
+              "55".tr,
+              style: const TextStyle(color: AppColor.white),
+            ),
+          );
+          await Future.delayed(const Duration(milliseconds: 500));
+          Get.toNamed(AppRoutes.login);
+          // update();
+        }
+      },
+    );
+  }
+
+  logOutDefault() {
+    CoolAlert.show(
+        context: Get.context!,
+        cancelBtnText: "62".tr,
+        confirmBtnText: "61".tr,
+        showCancelBtn: true,
+        backgroundColor: AppColor.primaryColor,
+        animType: CoolAlertAnimType.rotate,
+        borderRadius: BorderSide.strokeAlignCenter,
+        type: CoolAlertType.warning,
+        loopAnimation: true,
+        confirmBtnColor: AppColor.primaryColor,
+        title: "63".tr,
+        text: "64".tr,
+        onConfirmBtnTap: () async {
+          myServices.sharedPreferences.clear();
+
+          Get.rawSnackbar(
+            title: "32".tr,
+            backgroundColor: AppColor.secondColor,
+            icon: const Icon(
+              Icons.logout_outlined,
+              color: AppColor.white,
+            ),
+            messageText: Text(
+              "55".tr,
+              style: const TextStyle(color: AppColor.white),
+            ),
+          );
+          await Future.delayed(const Duration(milliseconds: 500));
+          Get.toNamed(AppRoutes.language);
+          // update();
+        });
   }
 }

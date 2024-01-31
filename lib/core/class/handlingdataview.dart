@@ -1,6 +1,7 @@
-import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class HandlingDataView extends StatelessWidget {
@@ -16,8 +17,8 @@ class HandlingDataView extends StatelessWidget {
         ? Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
-                child: Text("Loading...."),
+              Center(
+                child: Text("48".tr),
               ),
               Center(
                 child: Lottie.asset(AppImageAssets.loading),
@@ -30,8 +31,8 @@ class HandlingDataView extends StatelessWidget {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Center(
-                        child: Text("Empty Data"),
+                      Center(
+                        child: Text("49".tr),
                       ),
                       Center(
                         child:
@@ -60,8 +61,8 @@ class HandlingDataRequest extends StatelessWidget {
         ? Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
-                child: Text("Loading...."),
+              Center(
+                child: Text("48".tr),
               ),
               Center(
                 child: Lottie.asset(AppImageAssets.loading),

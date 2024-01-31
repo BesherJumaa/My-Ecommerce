@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/data/datasource/remote/test_data.dart';
 import 'package:get/get.dart';
 

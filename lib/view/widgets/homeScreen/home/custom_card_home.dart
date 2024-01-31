@@ -30,11 +30,14 @@ class CustomCardHome extends GetView<HomeControllerImp> {
                   fontSize: 20,
                 ),
               ),
-              subtitle: Text(
-                body,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+              subtitle: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  body,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
@@ -44,8 +47,8 @@ class CustomCardHome extends GetView<HomeControllerImp> {
             right: controller.lang == "en" ? -20 : null,
             left: controller.lang == "ar" ? -20 : null,
             child: Container(
-              height: 160,
-              width: 160,
+              height: 140,
+              width: 140,
               decoration: BoxDecoration(
                   color: AppColor.secondColor,
                   borderRadius: BorderRadius.circular(160)),

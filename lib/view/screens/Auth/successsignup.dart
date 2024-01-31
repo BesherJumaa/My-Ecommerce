@@ -1,3 +1,4 @@
+// ignore_for_file: deprecated_member_use
 
 import 'package:ecommercecourse/controller/auth/verifysignup/successsignup_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';

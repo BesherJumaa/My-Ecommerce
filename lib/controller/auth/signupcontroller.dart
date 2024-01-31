@@ -1,11 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/auth/signup_data.dart';
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/class/StatusRequest.dart';
+import '../../core/class/status_request.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/strings.dart';
 import '../../core/functions/handlingdatacontroller.dart';
@@ -45,13 +46,23 @@ class SignUpControllerImp extends SignUpController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           print(response['status']);
+          Get.rawSnackbar(
+              title: "32".tr,
+              icon: const Icon(
+                Icons.check_box,
+                color: AppColor.green,
+              ),
+              messageText: Text("58".tr),
+              backgroundColor: AppColor.primaryColor,
+              isDismissible: true);
           Get.offAndToNamed(AppRoutes.verifyCodeSignUp,
               arguments: {"email": email.text});
         } else {
           print("Email: ");
           print(email.text);
-          Get.defaultDialog(title: "Warning", middleText: Strings.existed);
+          Get.defaultDialog(title: "60".tr, middleText: Strings.existed);
           CoolAlert.show(
+              backgroundColor: AppColor.primaryColor,
               context: Get.overlayContext!,
               type: CoolAlertType.info,
               confirmBtnColor: AppColor.primaryColor,

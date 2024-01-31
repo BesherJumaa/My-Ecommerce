@@ -16,6 +16,7 @@ class ItemsModel {
   String? categoriesNameAr;
   String? categoriesImage;
   String? categoriesDatetime;
+  String? favorite;
 
   ItemsModel(
       {this.itemsId,
@@ -34,7 +35,8 @@ class ItemsModel {
       this.categoriesName,
       this.categoriesNameAr,
       this.categoriesImage,
-      this.categoriesDatetime});
+      this.categoriesDatetime,
+      this.favorite});
 
   ItemsModel.fromJson(Map<String, dynamic> json) {
     itemsId = json["items_id"];
@@ -54,27 +56,29 @@ class ItemsModel {
     categoriesNameAr = json["categories_name_ar"];
     categoriesImage = json["categories_image"];
     categoriesDatetime = json["categories_datetime"];
+    favorite = json["favorite"];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["items_id"] = itemsId;
-    _data["items_name"] = itemsName;
-    _data["items_name_ar"] = itemsNameAr;
-    _data["items_desc"] = itemsDesc;
-    _data["items_desc_ar"] = itemsDescAr;
-    _data["items_image"] = itemsImage;
-    _data["items_count"] = itemsCount;
-    _data["items_active"] = itemsActive;
-    _data["items_price"] = itemsPrice;
-    _data["items_discount"] = itemsDiscount;
-    _data["items_date"] = itemsDate;
-    _data["items_cat"] = itemsCat;
-    _data["categories_id"] = categoriesId;
-    _data["categories_name"] = categoriesName;
-    _data["categories_name_ar"] = categoriesNameAr;
-    _data["categories_image"] = categoriesImage;
-    _data["categories_datetime"] = categoriesDatetime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["items_id"] = itemsId;
+    data["items_name"] = itemsName;
+    data["items_name_ar"] = itemsNameAr;
+    data["items_desc"] = itemsDesc;
+    data["items_desc_ar"] = itemsDescAr;
+    data["items_image"] = itemsImage;
+    data["items_count"] = itemsCount;
+    data["items_active"] = itemsActive;
+    data["items_price"] = itemsPrice;
+    data["items_discount"] = itemsDiscount;
+    data["items_date"] = itemsDate;
+    data["items_cat"] = itemsCat;
+    data["categories_id"] = categoriesId;
+    data["categories_name"] = categoriesName;
+    data["categories_name_ar"] = categoriesNameAr;
+    data["categories_image"] = categoriesImage;
+    data["categories_datetime"] = categoriesDatetime;
+    data["favorite"] = favorite;
+    return data;
   }
 }

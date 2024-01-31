@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 class Strings {
-  static const String existed = "Phone Number Or Email Already Exist";
+  static String existed = "59".tr;
 }

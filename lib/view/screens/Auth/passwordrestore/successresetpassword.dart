@@ -21,6 +21,7 @@ class SuccessResetPassword extends StatelessWidget {
         backgroundColor: AppColor.backGroundColor,
         title: Text(
           "Success",
+          // ignore: deprecated_member_use
           style: Theme.of(context).textTheme.headline1!.copyWith(
                 color: AppColor.gray,
               ),

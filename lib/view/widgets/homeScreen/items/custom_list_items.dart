@@ -1,29 +1,71 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/core/functions/translate_database.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../controller/items_controller.dart';
 import '../../../../core/constant/color.dart';
+import '../../../../core/constant/imageassets.dart';
 import '../../../../linkapi.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
-  const CustomListItems({super.key, required this.itemsModel});
+  const CustomListItems({
+    super.key,
+    required this.itemsModel,
+  });
   final ItemsModel itemsModel;
+  // final bool active;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
+      onTap: () {
+        controller.goToProductDetails(itemsModel);
+      },
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CachedNetworkImage(
-              imageUrl: '${AppLink.imageItems}/${itemsModel.itemsImage}',
-              height: 100,
-              fit: BoxFit.fill,
+            Hero(
+              tag: "${itemsModel.itemsId}",
+              child: CachedNetworkImage(
+                imageUrl: '${AppLink.imageItems}/${itemsModel.itemsImage}',
+                height: 100,
+                fit: BoxFit.fill,
+                progressIndicatorBuilder: (BuildContext context, String url,
+                    DownloadProgress? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return Container(
+                      color: AppColor.primaryColor,
+                    ); // Placeholder, you can customize it
+                  } else {
+                    // While the image is still loading, show a loading indicator
+                    return Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 12),
+                        width: 100, // Adjust the width as needed
+                        height: 100, // Adjust the height as needed
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.progress,
+                        ),
+                      ),
+                    );
+                  }
+                },
+                errorWidget: (BuildContext context, String url, dynamic error) {
+                  // Handle the error, e.g., show a placeholder or default image
+                  return Center(
+                    heightFactor: 100,
+                    widthFactor: 150,
+                    child: Lottie.asset(AppImageAssets.server),
+                  );
+                },
+              ),
             ),
             Text(
               "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
@@ -38,10 +80,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Rating",
+                  Text(
+                    "47".tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                   Container(
                     alignment: Alignment.bottomCenter,
@@ -55,7 +97,7 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                 ))
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -63,24 +105,31 @@ class CustomListItems extends GetView<ItemsControllerImp> {
               height: 10,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "${itemsModel.itemsPrice} \$",
                   style: const TextStyle(color: AppColor.primaryColor),
                 ),
-                IconButton(
+                GetBuilder<FavoriteControllerImp>(builder: (controller) {
+                  return IconButton(
                     onPressed: () {
-                      controller.changeFavorite(controller.favorite);
+                      if (controller.isFavorite[itemsModel.itemsId] == "1") {
+                        controller.removeFavorite(itemsModel.itemsId!);
+                        // controller.setFavorite(itemsModel.itemsId, "0");
+                      } else {
+                        controller.addFavorite(itemsModel.itemsId!);
+                        // controller.setFavorite(itemsModel.itemsId, "1");
+                      }
                     },
-                    icon: controller.favorite == true
-                        ? const Icon(
-                            Icons.favorite,
-                            color: AppColor.primaryColor,
-                          )
-                        : const Icon(
-                            Icons.favorite_border_outlined,
-                            color: AppColor.primaryColor,
-                          ))
+                    icon: Icon(
+                      controller.isFavorite[itemsModel.itemsId] == "1"
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: AppColor.primaryColor,
+                    ),
+                  );
+                }),
               ],
             )
           ],

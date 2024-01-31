@@ -1,9 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:get/get.dart';
 
-import '../core/class/StatusRequest.dart';
+import '../core/class/status_request.dart';
 import '../core/functions/handlingdatacontroller.dart';
 
 abstract class HomeController extends GetxController {
@@ -47,6 +49,7 @@ class HomeControllerImp extends HomeController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         categories.addAll(response['categories']);
+        print("Categories are : ${response['categories']}");
         items.addAll(response['items']);
       } else {
         statusRequest = StatusRequest.failure;

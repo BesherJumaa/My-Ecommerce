@@ -1,4 +1,5 @@
-// import 'package:ecommercecourse/view/widgets/Auth/customappbarauth.dart';
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/controller/auth/logincontroller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/functions/alertexitapp.dart';
@@ -27,8 +28,8 @@ class Login extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.backGroundColor,
-      appBar: const CustomAppBarAuth(
-        title: "Sign In",
+      appBar: CustomAppBarAuth(
+        title: "26".tr,
       ),
       body: GetBuilder<LoginControllerImp>(
         builder: (controller) => HandlingDataRequest(

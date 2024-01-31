@@ -1,3 +1,5 @@
+import 'package:http/http.dart';
+
 import '../../../../core/class/crud.dart';
 import '../../../../linkapi.dart';
 
@@ -6,14 +8,29 @@ class LoginData {
   LoginData(this.crud);
 
   postdata(
-      String email,
+    String email,
     String password,
-  
   ) async {
-    var response = await crud.postData(AppLink.signIn, {
-      "email": email,
-      "password": password,
-    });
-    return response.fold((l) => l, (r) => r);
+    const maxRetries = 5;
+    for (var i = 0; i < maxRetries; i++) {
+      try {
+        var response = await crud.postData(AppLink.signIn, {
+          "email": email,
+          "password": password,
+        });
+        return response.fold((l) => l, (r) => r);
+      } catch (e) {
+        await Future.delayed(const Duration(seconds: 2));
+        print("Retrying ...$maxRetries");
+        if (e is ClientException) {
+          // Handle connection-related exception
+          print('Connection closed before full header was received');
+        } else {
+          // Handle other exceptions
+          print('Unexpected error: $e');
+        }
+      }
+    }
+    throw Exception('Failed after $maxRetries retries');
   }
 }

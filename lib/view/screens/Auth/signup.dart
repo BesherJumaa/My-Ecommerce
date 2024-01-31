@@ -22,7 +22,7 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.backGroundColor,
-      appBar: const CustomAppBarAuth(title: "Sign Up"),
+      appBar: CustomAppBarAuth(title: "17".tr),
       body: SingleChildScrollView(
         child: GetBuilder<SignUpControllerImp>(
           builder: (controller) => HandlingDataRequest(
@@ -34,11 +34,9 @@ class SignUp extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 35, vertical: 15),
                 child: Column(
                   children: [
-                    const CustomTitleAuth(title: "Welcome Back"),
+                    CustomTitleAuth(title: "10".tr),
                     const LogoAuthh(),
-                    const CustomTextBodyAuth(
-                        body:
-                            "Sign in with your Email and Password \n or continue with social media."),
+                    CustomTextBodyAuth(body: "24".tr),
                     const SizedBox(
                       height: 15,
                     ),
@@ -47,8 +45,8 @@ class SignUp extends StatelessWidget {
                         return validInput(val!, 5, 50, "username");
                       },
                       mycontroller: controller.username,
-                      textBox: "Username",
-                      hintText: "Enter Your Username",
+                      textBox: "23".tr,
+                      hintText: "20".tr,
                       iconPrefix: Icons.person_outline,
                     ),
                     AuthTextFormField(
@@ -58,8 +56,8 @@ class SignUp extends StatelessWidget {
                         keyboardtype: const TextInputType.numberWithOptions(
                             decimal: true),
                         mycontroller: controller.phone,
-                        textBox: "Phone",
-                        hintText: "Enter Your Phone",
+                        textBox: "22".tr,
+                        hintText: "21".tr,
                         iconPrefix: Icons.phone_outlined),
                     AuthTextFormField(
                       keyboardtype: TextInputType.emailAddress,
@@ -67,8 +65,8 @@ class SignUp extends StatelessWidget {
                         return validInput(val!, 5, 50, "email");
                       },
                       mycontroller: controller.email,
-                      textBox: "Email",
-                      hintText: "Enter Your Email",
+                      textBox: "12".tr,
+                      hintText: "18".tr,
                       iconPrefix: Icons.email_outlined,
                     ),
                     AuthPasswordTextFormField(
@@ -78,8 +76,8 @@ class SignUp extends StatelessWidget {
                       // secure: controller.secure.value,
                       // onIconPressed: controller.secures(controller.secure.value),
                       mycontroller: controller.password,
-                      textBox: "Confirm Password",
-                      hintText: "Confirm Your Password",
+                      textBox: "13".tr,
+                      hintText: "19".tr,
                     ),
                     AuthPasswordTextFormField(
                       validator: (val) {
@@ -88,14 +86,14 @@ class SignUp extends StatelessWidget {
                       // secure: controller.secure.value,
                       // onIconPressed: controller.secures(controller.secure.value),
                       mycontroller: controller.repassword,
-                      textBox: "Confirm Password",
-                      hintText: "Enter Your Password",
+                      textBox: "13".tr,
+                      hintText: "19".tr,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     CustomBottomAuth(
-                      text: 'Sign Up',
+                      text: '17'.tr,
                       onPressed: () {
                         controller.signUp();
                       },
@@ -104,8 +102,8 @@ class SignUp extends StatelessWidget {
                       height: 20,
                     ),
                     NoAccountAuth(
-                      text: "Already Have Account ?",
-                      buttonText: "Sign In",
+                      text: "25".tr,
+                      buttonText: "26".tr,
                       onTap: () {
                         controller.toLogin();
                       },

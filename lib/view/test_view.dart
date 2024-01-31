@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class TestView extends StatelessWidget {
+  const TestView({super.key});
+
   @override
   Widget build(BuildContext context) {
     Get.put(TestController());

@@ -10,20 +10,26 @@ import 'package:ecommercecourse/view/screens/Auth/passwordrestore/verifycodesign
 import 'package:ecommercecourse/view/screens/Auth/signup.dart';
 import 'package:ecommercecourse/view/screens/Auth/successsignup.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/items.dart';
+import 'package:ecommercecourse/view/screens/homeScreens/item_details.dart';
+import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:ecommercecourse/view/screens/home_screen.dart';
 import 'package:ecommercecourse/view/screens/language.dart';
+import 'package:ecommercecourse/view/screens/language_app.dart';
 import 'package:ecommercecourse/view/screens/onboarding.dart';
 
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
   //Main Page
-  // GetPage(name: "/", page: () => const Language()), //Main Page
+  // GetPage(name: "/", page: () => const ProductDetails()), //Main Page
   GetPage(
       name: "/", page: () => const Language(), middlewares: [MyMiddleware()]),
+
   //HomePage
   GetPage(name: AppRoutes.homePage, page: () => const HomeScreen()),
   GetPage(name: AppRoutes.items, page: () => const Items()),
+  //Product Details
+  GetPage(name: AppRoutes.productDetails, page: () => const ItemDetails()),
   // On Boarding
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Language
@@ -41,6 +47,18 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoutes.successResetPassword,
       page: () => const SuccessResetPassword()),
   GetPage(name: AppRoutes.successSignUp, page: () => const SuccessSignUp()),
+  GetPage(
+    name: AppRoutes.languageApp,
+    page: () => const LanguageApp(),
+  ),
+  GetPage(
+    name: AppRoutes.myFavorite,
+    page: () => const MyFavorite(),
+  ),
+  GetPage(
+    name: AppRoutes.language,
+    page: () => const Language(),
+  ),
 ];
 //
 // Map<String, Widget Function(BuildContext)> routes = {

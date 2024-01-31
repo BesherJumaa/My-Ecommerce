@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print
+
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/localization/changelocal.dart';
 import 'package:ecommercecourse/view/widgets/language/custombuttomlang.dart';

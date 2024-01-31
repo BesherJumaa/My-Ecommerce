@@ -1,6 +1,9 @@
 import 'package:ecommercecourse/view/screens/homeScreens/home.dart';
+import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../view/screens/settings.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int i);
@@ -11,30 +14,33 @@ class HomeScreenControllerImp extends HomeScreenController {
   late PageController pageController;
   List<Widget> listPage = [
     const HomePage(),
-    const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(child: Text("Settings")),
-      ],
-    ),
-    const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(child: Text("Favorite")),
-      ],
-    ),
+    const MyFavorite(),
     const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(child: Text("Profile")),
       ],
     ),
-    const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(child: Text("Home")),
-      ],
-    ),
+    const Settings(),
+  ];
+
+  List bottomAppBar = [
+    {
+      "title": "home",
+      "icon": Icons.home_outlined,
+    },
+    {
+      "title": "favorite",
+      "icon": Icons.favorite_border_outlined,
+    },
+    {
+      "title": "profile",
+      "icon": Icons.person_2_outlined,
+    },
+    {
+      "title": "settings",
+      "icon": Icons.settings_outlined,
+    }
   ];
 
   @override
@@ -46,11 +52,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   @override
   changePage(int i) {
     currentPage = i;
-    pageController.animateToPage(
-      i,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+
     update();
   }
 

@@ -16,7 +16,7 @@ class CustomForgotPassword extends StatelessWidget {
         child: Text(
           "14".tr,
           textAlign: TextAlign.right,
-          style: TextStyle(color: AppColor.gray),
+          style: const TextStyle(color: AppColor.gray),
         ));
   }
 }

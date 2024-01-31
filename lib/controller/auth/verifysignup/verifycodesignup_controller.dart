@@ -1,9 +1,9 @@
 import 'package:cool_alert/cool_alert.dart';
-import 'package:ecommercecourse/core/class/StatusRequest.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/auth/verifycodesignup_data.dart';
-import 'package:ecommercecourse/view/widgets/auth/custombuttonauth.dart';
+import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
@@ -12,6 +12,7 @@ import '../../../core/functions/handlingdatacontroller.dart';
 abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();
   goToSuccessSignUp(String verifyCode);
+  resend();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
@@ -57,5 +58,22 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
     // TODO: implement onInit
     email = Get.arguments['email'];
     super.onInit();
+  }
+
+  @override
+  resend() {
+    verfiyCodeSignUpData.resendData(email!);
+    Get.rawSnackbar(
+        title: "32".tr,
+        icon: const Icon(
+          Icons.refresh,
+          // color: AppColor.primaryColor,
+        ),
+        messageText: Text(
+          "52".tr,
+          style: const TextStyle(color: AppColor.white),
+        ),
+        backgroundColor: AppColor.thirdColor,
+        isDismissible: true);
   }
 }

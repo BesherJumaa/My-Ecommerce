@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:ecommercecourse/view/widgets/Auth/customtextbodyauth.dart';
 
 import 'package:ecommercecourse/view/widgets/Auth/customtitleauth.dart';

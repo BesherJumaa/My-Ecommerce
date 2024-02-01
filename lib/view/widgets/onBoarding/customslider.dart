@@ -3,6 +3,7 @@ import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
   const CustomSliderOnBoarding({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
         itemCount: onBoardingList.length,
         itemBuilder: (context, i) => Column(
               children: [
-                Image.asset(
+                Lottie.asset(
                   onBoardingList[i].image!,
                   // width: ,
                   height: Get.width / 1.3,

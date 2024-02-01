@@ -1,6 +1,7 @@
 import 'package:http/http.dart';
 
 import '../../../core/class/crud.dart';
+import '../../../core/class/status_request.dart';
 import '../../../linkapi.dart';
 
 class ItemsData {
@@ -18,6 +19,7 @@ class ItemsData {
         await Future.delayed(const Duration(seconds: 1));
         print("Retrying ...$maxRetries");
         if (e is ClientException) {
+          return StatusRequest.offlineFailure;
           // Handle connection-related exception
           print('Connection closed before full header was received');
         } else {

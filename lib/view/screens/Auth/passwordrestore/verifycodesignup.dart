@@ -56,21 +56,24 @@ class VerifyCodeSignUp extends StatelessWidget {
                       height: 20,
                     ),
 
-                    OtpTextField(
-                      fieldWidth: 50.0,
-                      borderRadius: BorderRadius.circular(20),
-                      numberOfFields: 5,
-                      borderColor: const Color(0xFF512DA8),
-                      //set to true to show as box or false to show as dash
-                      showFieldAsBox: true,
-                      //runs when a code is typed in
-                      onCodeChanged: (String code) {
-                        //handle validation or checks here
-                      },
-                      //runs when every textField is filled
-                      onSubmit: (String verificationCode) {
-                        controller.goToSuccessSignUp(verificationCode);
-                      }, // end onSubmit
+                    Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: OtpTextField(
+                        fieldWidth: 50.0,
+                        borderRadius: BorderRadius.circular(20),
+                        numberOfFields: 5,
+                        borderColor: const Color(0xFF512DA8),
+                        //set to true to show as box or false to show as dash
+                        showFieldAsBox: true,
+                        //runs when a code is typed in
+                        onCodeChanged: (String code) {
+                          //handle validation or checks here
+                        },
+                        //runs when every textField is filled
+                        onSubmit: (String verificationCode) {
+                          controller.goToSuccessSignUp(verificationCode);
+                        }, // end onSubmit
+                      ),
                     ),
                     const SizedBox(
                       height: 30,

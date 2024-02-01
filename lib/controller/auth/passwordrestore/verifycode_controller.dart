@@ -3,6 +3,7 @@ import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/datasource/remote/forgetpassword/verifycodepassword_data.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/functions/handlingdatacontroller.dart';
@@ -45,6 +46,23 @@ class VerifyCodeControllerImp extends VerifyCodeController {
       }
     }
     update();
+  }
+
+  @override
+  resend() {
+    verifyCodeData.resendData(email!);
+    Get.rawSnackbar(
+        title: "32".tr,
+        icon: const Icon(
+          Icons.refresh,
+          // color: AppColor.primaryColor,
+        ),
+        messageText: Text(
+          "52".tr,
+          style: const TextStyle(color: AppColor.white),
+        ),
+        backgroundColor: AppColor.thirdColor,
+        isDismissible: true);
   }
 
   @override

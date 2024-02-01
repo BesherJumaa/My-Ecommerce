@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/onboarding_controller.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/view/widgets/onBoarding/custombutton.dart';
 import 'package:flutter/material.dart';
 import '../widgets/onBoarding/dotcontroller.dart';
@@ -13,6 +14,7 @@ class OnBoarding extends StatelessWidget {
     Get.put(OnBoardingControllerImp());
     // TODO: implement build
     return const Scaffold(
+      backgroundColor: AppColor.white,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Column(

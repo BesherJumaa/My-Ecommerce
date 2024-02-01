@@ -1,4 +1,8 @@
+import 'package:ecommercecourse/controller/item_details_controller.dart';
+import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../../../core/constant/color.dart';
 
@@ -23,7 +27,7 @@ class PriceAndCountItems extends StatelessWidget {
         Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: onAdd,
               icon: const Icon(Icons.add),
             ),
             Container(
@@ -38,7 +42,7 @@ class PriceAndCountItems extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: onRemove,
               icon: const Icon(Icons.remove),
             ),
           ],
@@ -50,7 +54,7 @@ class PriceAndCountItems extends StatelessWidget {
             "$price \$",
             style: const TextStyle(color: AppColor.primaryColor, fontSize: 30),
           ),
-        )
+        ),
       ],
     );
   }

@@ -74,6 +74,16 @@ class MyTranslation extends Translations {
           "66": "اتصل بنا",
           "67": "من نحن؟",
           "68": "العنوان",
+          "69": "لا يوجد اتصال بالإنترنت",
+          "70": "عمولة",
+          "71": "السعر",
+          "72": "السعر الإجمالي",
+          "73": "سلّتي",
+          "74": "تقديم طلب",
+          "75": "تم الحذف من السلة",
+          "76": "تمت الإضافة الى السلة",
+          "77": "يوجد لديك @count منتجات في قائمتك",
+          "78": "تعطيل الإشعارات",
         },
         "en": {
           "1": "Choose Language",
@@ -148,6 +158,16 @@ class MyTranslation extends Translations {
           "66": "Contact Us",
           "67": "About Us",
           "68": "Address",
+          "69": " No Internet Connection",
+          "70": "Shipping",
+          "71": "Price",
+          "72": "Total Price",
+          "73": "My Cart",
+          "74": "Place Order",
+          "75": "Removed From Cart",
+          "76": "Added To Cart",
+          "77": "You Have @count Items in Your List",
+          "78": "Disable Notifications",
         }
       };
 }

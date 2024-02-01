@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/auth/logincontroller.dart';
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +48,7 @@ class AuthPasswordTextFormField extends StatelessWidget {
                     ? Icons.visibility
                     : Icons.visibility_off,
                 // Icons.lock_outline,
-                // color: Theme.of(context).primaryColorDark,
+                color: AppColor.primaryColor,
               ),
               onPressed: () {
                 controller.secure.value = !controller.secure.value;

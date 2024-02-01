@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../../../core/constant/color.dart';
 
 class ButtonAddToCart extends StatelessWidget {
-  const ButtonAddToCart({super.key});
-
+  ButtonAddToCart({super.key, required this.onPressed});
+  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -20,7 +20,7 @@ class ButtonAddToCart extends StatelessWidget {
           style: const TextStyle(
               fontWeight: FontWeight.bold, color: AppColor.white),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
       ),
     );
   }

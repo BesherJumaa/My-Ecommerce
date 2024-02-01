@@ -13,7 +13,11 @@ class ItemDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     ItemDetailsControllerImp controller = Get.put(ItemDetailsControllerImp());
     return Scaffold(
-      bottomNavigationBar: const ButtonAddToCart(),
+      bottomNavigationBar: ButtonAddToCart(
+        onPressed: () {
+          controller.goToCart();
+        },
+      ),
       body: RefreshIndicator(
         onRefresh: () async {
           controller.initialData();

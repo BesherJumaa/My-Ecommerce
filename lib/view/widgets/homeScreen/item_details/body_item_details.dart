@@ -5,6 +5,8 @@ import 'package:ecommercecourse/view/widgets/homeScreen/item_details/price_and_c
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/class/handlingdataview.dart';
+import '../../../../core/class/status_request.dart';
 import '../../../../core/constant/color.dart';
 import '../../../../core/functions/translate_database.dart';
 
@@ -29,8 +31,25 @@ class BodyItemDetails extends GetView<ItemDetailsControllerImp> {
           const SizedBox(
             height: 10,
           ),
-          PriceAndCountItems(
-              onAdd: () {}, onRemove: () {}, price: "300.0", count: "2"),
+          GetBuilder<ItemDetailsControllerImp>(builder: (controller) {
+            return SizedBox(
+              width: controller.statusRequest == StatusRequest.loading
+                  ? 100
+                  : null,
+              child: HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: PriceAndCountItems(
+                    onAdd: () {
+                      controller.add();
+                    },
+                    onRemove: () {
+                      controller.remove();
+                    },
+                    price: "${controller.itemsModel.itemsDiscount}",
+                    count: "${controller.countItems}"),
+              ),
+            );
+          }),
           Text(
               "${translateDatabase(controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc)}",
               style: Theme.of(context).textTheme.bodyText1),

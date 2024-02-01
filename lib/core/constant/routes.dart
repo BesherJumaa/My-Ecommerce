@@ -12,6 +12,7 @@ class AppRoutes {
   static const String items = '/items';
   static const String productDetails = '/productDetails';
   static const String myFavorite = '/myFavorite';
+  static const String cart = '/cart';
 
   static const String successResetPassword = '/successResetPassword';
   static const String successSignUp = '/successSignUp';

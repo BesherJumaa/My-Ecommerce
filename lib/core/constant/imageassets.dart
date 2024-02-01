@@ -14,4 +14,11 @@ class AppImageAssets {
   static const String server = "$rootLottie/server.json";
   static const String shop = "$rootLottie/shop.json";
   static const String shops = "$rootLottie/shopico.json";
+  static const String profile = "$rootLottie/profile.json";
+  static const String onBoarding1 = "$rootLottie/onboarding/onBoardingone.json";
+  static const String onBoarding2 = "$rootLottie/onboarding/onBoardingtow.json";
+  static const String onBoarding3 =
+      "$rootLottie/onboarding/onBoardingthree.json";
+  static const String onBoarding4 =
+      "$rootLottie/onboarding/onBoardingfour.json";
 }

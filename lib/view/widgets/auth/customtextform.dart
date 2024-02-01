@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class AuthTextFormField extends StatelessWidget {
@@ -36,7 +37,10 @@ class AuthTextFormField extends StatelessWidget {
                 child: Text(textBox!)),
             hintStyle: const TextStyle(fontSize: 14),
             hintText: hintText,
-            suffixIcon: Icon(iconPrefix),
+            suffixIcon: Icon(
+              iconPrefix,
+              color: AppColor.primaryColor,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
             )),

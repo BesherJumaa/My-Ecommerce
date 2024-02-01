@@ -1,12 +1,10 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/homescreen_controller.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/customBottomAppBarHome.dart';
-
-import 'package:ecommercecourse/view/widgets/homeScreen/customBottomappBarButton.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../core/functions/alertexitapp.dart';
 import '../widgets/homeScreen/home/customappbar.dart';
 
@@ -26,8 +24,10 @@ class HomeScreen extends StatelessWidget {
             appBar: const CustomAppBarHome(),
             drawer: const CustomDrawer(),
             floatingActionButton: FloatingActionButton(
-              onPressed: () {},
-              child: const Icon(Icons.shopping_basket_outlined),
+              onPressed: () {
+                Get.toNamed(AppRoutes.cart);
+              },
+              child: const Icon(Icons.shopping_cart_outlined),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,

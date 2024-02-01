@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import '../../controller/auth/logincontroller.dart';
 import '../../core/constant/imageassets.dart';
 
@@ -22,9 +23,9 @@ class Settings extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(100)),
                 child: CircleAvatar(
-                  radius: 40,
-                  backgroundColor: Colors.grey[100],
-                  backgroundImage: const AssetImage(AppImageAssets.avatar),
+                  radius: 60,
+                  backgroundColor: AppColor.backGroundColor,
+                  child: Lottie.asset(AppImageAssets.profile, fit: BoxFit.fill),
                 ),
               )),
         ]),
@@ -36,21 +37,30 @@ class Settings extends StatelessWidget {
               ListTile(
                 // onTap: () {},
                 trailing: Switch(onChanged: (val) {}, value: true),
-                title: const Text("Disable Notificatios"),
+                title: Text("78".tr),
               ),
               ListTile(
                 onTap: () {},
-                trailing: const Icon(Icons.location_on_outlined),
+                trailing: const Icon(
+                  Icons.location_on_outlined,
+                  color: AppColor.primaryColor,
+                ),
                 title: Text("68".tr),
               ),
               ListTile(
                 onTap: () {},
-                trailing: const Icon(Icons.help_outline_rounded),
+                trailing: const Icon(
+                  Icons.help_outline_rounded,
+                  color: AppColor.primaryColor,
+                ),
                 title: Text("67".tr),
               ),
               ListTile(
                 onTap: () {},
-                trailing: const Icon(Icons.phone_callback_outlined),
+                trailing: const Icon(
+                  Icons.phone_callback_outlined,
+                  color: AppColor.primaryColor,
+                ),
                 title: Text("66".tr),
               ),
               ListTile(
@@ -58,7 +68,10 @@ class Settings extends StatelessWidget {
                   controller.logOut();
                 },
                 title: Text("56".tr),
-                trailing: const Icon(Icons.exit_to_app),
+                trailing: const Icon(
+                  Icons.exit_to_app,
+                  color: AppColor.primaryColor,
+                ),
               ),
             ]),
           ),

@@ -2,7 +2,6 @@ import 'package:ecommercecourse/view/screens/homeScreens/home.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../view/screens/settings.dart';
 
 abstract class HomeScreenController extends GetxController {
@@ -15,10 +14,10 @@ class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> listPage = [
     const HomePage(),
     const MyFavorite(),
-    const Column(
+    Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(child: Text("Profile")),
+        Center(child: Text("46".tr)),
       ],
     ),
     const Settings(),
@@ -26,19 +25,19 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List bottomAppBar = [
     {
-      "title": "home",
+      "title": "43".tr,
       "icon": Icons.home_outlined,
     },
     {
-      "title": "favorite",
+      "title": "45".tr,
       "icon": Icons.favorite_border_outlined,
     },
     {
-      "title": "profile",
+      "title": "46".tr,
       "icon": Icons.person_2_outlined,
     },
     {
-      "title": "settings",
+      "title": "44".tr,
       "icon": Icons.settings_outlined,
     }
   ];

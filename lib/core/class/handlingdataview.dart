@@ -7,38 +7,75 @@ import 'package:lottie/lottie.dart';
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;
+  double? width;
+  double? height;
+  double? imageWidth;
+  double? imageHeight;
 
-  const HandlingDataView(
-      {super.key, required this.statusRequest, required this.widget});
+  HandlingDataView({
+    super.key,
+    required this.statusRequest,
+    required this.widget,
+    this.height,
+    this.width,
+    this.imageHeight,
+    this.imageWidth,
+  });
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
     return statusRequest == StatusRequest.loading
-        ? Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Text("48".tr),
-              ),
-              Center(
-                child: Lottie.asset(AppImageAssets.loading),
-              ),
-            ],
+        ? SizedBox(
+            height: height,
+            width: width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text("48".tr),
+                ),
+                Center(
+                  child: Lottie.asset(
+                    width: imageWidth,
+                    height: imageHeight,
+                    AppImageAssets.loading,
+                  ),
+                ),
+              ],
+            ),
           )
         : statusRequest == StatusRequest.offlineFailure
-            ? Center(child: Lottie.asset(AppImageAssets.offline))
+            ? SizedBox(
+                height: height,
+                width: width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text("69".tr),
+                    ),
+                    Center(child: Lottie.asset(AppImageAssets.offline)),
+                  ],
+                ),
+              )
             : statusRequest == StatusRequest.failure
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Text("49".tr),
-                      ),
-                      Center(
-                        child:
-                            Lottie.asset(AppImageAssets.noData, repeat: false),
-                      ),
-                    ],
+                ? SizedBox(
+                    height: height,
+                    width: width,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: Text("49".tr),
+                        ),
+                        Center(
+                          child: Lottie.asset(AppImageAssets.noData,
+                              repeat: false),
+                        ),
+                      ],
+                    ),
                   )
                 : statusRequest == StatusRequest.serverFailure
                     ? Center(

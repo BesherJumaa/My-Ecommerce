@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print, prefer_typing_uninitialized_variables
 
-import 'package:ecommercecourse/core/functions/checkinternet.dart';
+import 'package:ecommercecourse/core/functions/check_internet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 

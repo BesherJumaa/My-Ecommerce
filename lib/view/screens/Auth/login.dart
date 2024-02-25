@@ -1,22 +1,22 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/controller/auth/logincontroller.dart';
+import 'package:ecommercecourse/controller/auth/login_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/functions/alertexitapp.dart';
-import 'package:ecommercecourse/core/functions/validinput.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtextform.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtitleauth.dart';
-import 'package:ecommercecourse/view/widgets/Auth/logoauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customappbarauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customforgotpassword.dart';
-import 'package:ecommercecourse/view/widgets/auth/noaccountauth.dart';
+import 'package:ecommercecourse/core/class/status_request.dart';
+import 'package:ecommercecourse/core/functions/alert_exit_app.dart';
+import 'package:ecommercecourse/core/functions/valid_input.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_text_body_auth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_text_form.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_title_auth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/logo_auth.dart';
+import 'package:ecommercecourse/view/widgets/auth/custom_appbar_auth.dart';
+import 'package:ecommercecourse/view/widgets/auth/custom_forgot_password.dart';
+import 'package:ecommercecourse/view/widgets/auth/no_account_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constant/color.dart';
-import '../../widgets/auth/custombuttonauth.dart';
-import '../../widgets/auth/custompasswordtextform.dart';
+import '../../widgets/auth/custom_button_auth.dart';
+import '../../widgets/auth/custom_password_textform.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -24,7 +24,6 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => LoginControllerImp());
-    // TODO: implement build
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.backGroundColor,
@@ -34,6 +33,10 @@ class Login extends StatelessWidget {
       body: GetBuilder<LoginControllerImp>(
         builder: (controller) => HandlingDataRequest(
           statusRequest: controller.statusRequest,
+          onOffline: () {
+            controller.statusRequest = StatusRequest.none;
+            controller.onInit();
+          },
           widget: WillPopScope(
             onWillPop: alertExitApp,
             child: Form(

@@ -1,14 +1,12 @@
 // ignore_for_file: avoid_print
-
 import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../core/class/status_request.dart';
-import '../core/functions/handlingdatacontroller.dart';
+import '../core/functions/handling_data_controller.dart';
+import 'search_controller.dart';
 
-abstract class HomeController extends GetxController {
+abstract class HomeController extends SearchMixController {
   initialData();
   getData();
   goToItems(List items, selectedItem);
@@ -16,17 +14,16 @@ abstract class HomeController extends GetxController {
 }
 
 class HomeControllerImp extends HomeController {
-  MyServices myServices = Get.find();
-  HomeData homeData = HomeData(Get.find());
   // List data = [];
   List categories = [];
   List items = [];
-  late StatusRequest statusRequest;
+
   String? username;
   String? id, phone;
   String? lang;
   @override
   initialData() {
+    search = TextEditingController();
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
@@ -37,6 +34,7 @@ class HomeControllerImp extends HomeController {
   void onInit() {
     getData();
     initialData();
+    update();
     super.onInit();
   }
 
@@ -45,6 +43,7 @@ class HomeControllerImp extends HomeController {
     statusRequest = StatusRequest.loading;
     var response = await homeData.getData();
     statusRequest = handlingData(response);
+    items.clear();
     // print("response is  : ${response}");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {

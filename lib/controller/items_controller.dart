@@ -1,22 +1,19 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
-import 'package:ecommercecourse/data/model/items_model.dart';
+import 'package:ecommercecourse/controller/search_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../core/class/status_request.dart';
 import '../core/constant/routes.dart';
-import '../core/functions/handlingdatacontroller.dart';
+import '../core/functions/handling_data_controller.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends SearchMixController {
   initialData();
   changeCat(int val, String categoriesId);
   changeFavorite(bool val);
   getItems(String categoryId);
   PageController get pageController;
-  goToProductDetails(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -26,11 +23,11 @@ class ItemsControllerImp extends ItemsController {
   String? userId;
   bool favorite = false;
   List data = [];
-  late StatusRequest statusRequest;
-  MyServices myServices = Get.find();
+
   ItemsData itemsData = ItemsData(Get.find());
   @override
   initialData() {
+    search = TextEditingController();
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
     catID = Get.arguments['categoryId'];

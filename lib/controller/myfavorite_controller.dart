@@ -1,37 +1,30 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/core/services/services.dart';
-
 import 'package:ecommercecourse/data/datasource/remote/myfavorite_data.dart';
-import 'package:ecommercecourse/data/model/items_model.dart';
 
 import 'package:ecommercecourse/data/model/myfavorite_model.dart';
+import 'package:ecommercecourse/controller/search_controller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../core/class/status_request.dart';
 import '../core/constant/color.dart';
-import '../core/constant/routes.dart';
-import '../core/functions/handlingdatacontroller.dart';
+import '../core/functions/handling_data_controller.dart';
 
-abstract class MyFavoriteController extends GetxController {
+abstract class MyFavoriteController extends SearchMixController {
   initialData();
-
   getItems();
   removeFavorite(String? favoriteID);
-
-  goToProductDetails(ItemsModel myFavoriteModel);
 }
 
 class MyFavoriteControllerImp extends MyFavoriteController {
   MyFavoriteData myFavoriteData = MyFavoriteData(Get.find());
   List<MyFavoriteModel> data = [];
-  late StatusRequest statusRequest;
-  MyServices myServices = Get.find();
 
   @override
   initialData() {
+    search = TextEditingController();
     getItems();
   }
 
@@ -67,7 +60,7 @@ class MyFavoriteControllerImp extends MyFavoriteController {
   removeFavorite(favoriteID) {
     // data.clear();
     // statusRequest = StatusRequest.loading;
-    var response = myFavoriteData.removeFavorite(favoriteID!);
+    myFavoriteData.removeFavorite(favoriteID!);
     // statusRequest = handlingData(response);
     // // print("response is  : ${response}");
     // if (StatusRequest.success == statusRequest) {
@@ -93,19 +86,8 @@ class MyFavoriteControllerImp extends MyFavoriteController {
   }
 
   @override
-  goToProductDetails(myFavoriteModel) {
-    Get.toNamed(AppRoutes.productDetails,
-        arguments: {"itemsModel": myFavoriteModel});
-    throw UnimplementedError();
-  }
-
-  @override
   void onClose() {
     // TODO: implement onClose
     super.onClose();
   }
-
-  @override
-  // TODO: implement onDelete
-  InternalFinalCallback<void> get onDelete => super.onDelete;
 }

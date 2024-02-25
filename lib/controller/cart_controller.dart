@@ -1,15 +1,15 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/model/cart_model.dart';
+import 'package:ecommercecourse/controller/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../core/class/status_request.dart';
 import '../core/constant/color.dart';
-import '../core/functions/handlingdatacontroller.dart';
+import '../core/functions/handling_data_controller.dart';
 import '../data/datasource/remote/cart_data.dart';
 
-abstract class CartController extends GetxController {
+abstract class CartController extends SearchMixController {
   initialData();
   resetVarCart();
   refreshPage();
@@ -22,8 +22,7 @@ abstract class CartController extends GetxController {
 class CartControllerImp extends CartController {
   CartData cartData = CartData(Get.find());
   List<CartModel> data = [];
-  late StatusRequest statusRequest;
-  MyServices myServices = Get.find();
+
   double totalPrice = 0.0;
   int totalcountItems = 0;
 
@@ -48,7 +47,7 @@ class CartControllerImp extends CartController {
     var response =
         await cartData.getData(myServices.sharedPreferences.getString("id")!);
     statusRequest = handlingData(response);
-    print("response is  : ${response}");
+    print("response is  : $response");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         // if (response['datacart']['status'] == "success") {
@@ -135,10 +134,6 @@ class CartControllerImp extends CartController {
     // TODO: implement onClose
     super.onClose();
   }
-
-  @override
-  // TODO: implement onDelete
-  InternalFinalCallback<void> get onDelete => super.onDelete;
 
   @override
   getCountItems(itemsID) async {

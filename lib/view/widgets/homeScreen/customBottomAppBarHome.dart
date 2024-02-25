@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/homescreen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/constant/color.dart';
 import 'customBottomappBarButton.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
@@ -9,9 +10,11 @@ class CustomBottomAppBarHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(
         builder: (controller) => BottomAppBar(
-            shape: const CircularNotchedRectangle(),
+            color: AppColor.white,
+            height: 69,
             notchMargin: 10,
             child: Row(
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ...List.generate(controller.listPage.length + 1, ((index) {
                   int i = index > 2 ? index - 1 : index;

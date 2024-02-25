@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/controller/auth/logincontroller.dart';
+import 'package:ecommercecourse/controller/auth/login_controller.dart';
 import 'package:get/get.dart';
 
 import 'controller/auth/passwordrestore/resetpassword_controller.dart';

@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/view/widgets/custom_app_bar.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/home/customappbar.dart';
+import 'package:ecommercecourse/view/screens/search_items.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/items/custom_view_items.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/items/list_categories_items.dart';
 import 'package:flutter/material.dart';
@@ -13,27 +14,51 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ItemsControllerImp controller = Get.put(ItemsControllerImp());
+    Get.put(ItemsControllerImp());
     FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
+    Get.put(SearchController());
     return Scaffold(
       appBar: const CustomAppBarHome(),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          controller.initialData();
-          // controllerFav.onInit();
-          controllerFav.update();
-        },
-        child: ListView(children: [
-          CustomSearchBar(
-            titleAppBar: "42".tr,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const ListCategoriesItems(),
-          const GridViewItems(),
-        ]),
-      ),
+      body: GetBuilder<ItemsControllerImp>(builder: (controller) {
+        return RefreshIndicator(
+          onRefresh: () async {
+            controller.initialData();
+            // controllerFav.onInit();
+            controllerFav.update();
+          },
+          child: ListView(children: [
+            CustomSearchBar(
+              myController: controller.search,
+              onPressedSearch: () {
+                controller.onSearchItem();
+              },
+              onChanged: (val) {
+                controller.checkSearch(val);
+              },
+              titleAppBar: "42".tr,
+            ),
+            controller.isSearch == false
+                ? const Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ListCategoriesItems(),
+                      GridViewItems(),
+                    ],
+                  )
+                : GridViewSearchItems(
+                    controller: ItemsControllerImp(),
+                    statusRequest: controller.statusRequest,
+                    dataSearch: controller.dataSearch,
+                  ),
+            // Container(
+            //     child: Text("NO"),
+            //   )
+          ]),
+        );
+      }),
     );
   }
 }

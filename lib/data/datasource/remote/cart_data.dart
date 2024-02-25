@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:http/http.dart';
 
 import '../../../core/class/crud.dart';
@@ -58,8 +60,6 @@ class CartData {
         print("Retrying ...$maxRetries");
         if (e is ClientException) {
           return StatusRequest.offlineFailure;
-          // Handle connection-related exception
-          print('Connection closed before full header was received');
         } else {
           // Handle other exceptions
           print('Unexpected error: $e');

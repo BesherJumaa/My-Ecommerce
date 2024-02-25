@@ -19,6 +19,9 @@ class GridViewItems extends StatelessWidget {
     // TODO: implement build
     return GetBuilder<ItemsControllerImp>(builder: (controller) {
       return HandlingDataView(
+        onOffline: () {
+          controller.onInit();
+        },
         statusRequest: controller.statusRequest,
         widget: GridView.builder(
             itemCount: controller.data.length,

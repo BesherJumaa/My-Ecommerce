@@ -7,6 +7,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? mycontroller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardtype;
+  final void Function(String)? onChanged;
+  final void Function()? onEditingComplete;
   const CustomTextFormField({
     super.key,
     required this.textBox,
@@ -15,6 +17,8 @@ class CustomTextFormField extends StatelessWidget {
     this.mycontroller,
     this.keyboardtype,
     this.validator,
+    required this.onChanged,
+    this.onEditingComplete,
   });
 
   @override
@@ -23,6 +27,8 @@ class CustomTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 15),
       child: TextFormField(
+        onEditingComplete: onEditingComplete,
+        onChanged: onChanged,
         keyboardType: keyboardtype,
         controller: mycontroller,
         autovalidateMode: AutovalidateMode.onUserInteraction,

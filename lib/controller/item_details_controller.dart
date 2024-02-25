@@ -1,4 +1,5 @@
-import 'package:ecommercecourse/controller/cart_controller.dart';
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../core/constant/color.dart';
-import '../core/functions/handlingdatacontroller.dart';
+import '../core/functions/handling_data_controller.dart';
 import '../core/services/services.dart';
 import '../data/datasource/remote/cart_data.dart';
 import '../data/model/cart_model.dart';
@@ -63,7 +64,6 @@ class ItemDetailsControllerImp extends ItemDetailsController {
 
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        int countItems = 0;
         countItems = int.parse(response['data']);
         print("Count Items  : $countItems");
         return countItems;

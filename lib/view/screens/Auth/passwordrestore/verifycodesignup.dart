@@ -2,8 +2,8 @@
 
 import 'package:ecommercecourse/controller/auth/verifysignup/verifycodesignup_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtitleauth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_text_body_auth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_title_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';

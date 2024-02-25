@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/constant/color.dart';
 
@@ -12,7 +11,7 @@ class TopAppbarCart extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Container(
-        margin: EdgeInsets.symmetric(horizontal: 100),
+        margin: const EdgeInsets.symmetric(horizontal: 100),
         child: Center(
           child: Text(
             title,

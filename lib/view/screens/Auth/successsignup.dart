@@ -3,7 +3,7 @@
 import 'package:ecommercecourse/controller/auth/verifysignup/successsignup_controller.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 
-import 'package:ecommercecourse/view/widgets/auth/custombuttonauth.dart';
+import 'package:ecommercecourse/view/widgets/auth/custom_button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

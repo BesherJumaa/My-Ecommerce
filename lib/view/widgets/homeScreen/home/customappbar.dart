@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
-import '../../../../core/constant/color.dart';
 
 class CustomAppBarHome extends GetView<HomeControllerImp>
     implements PreferredSizeWidget {
@@ -13,7 +12,9 @@ class CustomAppBarHome extends GetView<HomeControllerImp>
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text("${controller.username}"),
+      title: Text(
+        "${controller.username}",
+      ),
       actions: [
         Column(
           children: [
@@ -22,7 +23,6 @@ class CustomAppBarHome extends GetView<HomeControllerImp>
           ],
         )
       ],
-      backgroundColor: AppColor.primaryColor,
     );
   }
 }

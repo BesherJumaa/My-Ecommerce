@@ -23,13 +23,15 @@ class ItemDetails extends StatelessWidget {
           controller.initialData();
         },
         child: ListView(
-          children: const [
-            TopItemDetails(),
-            SizedBox(
+          children: [
+            TopItemDetails(
+              itemsModel: controller.itemsModel,
+            ),
+            const SizedBox(
               height: 100,
             ),
-            BodyItemDetails(),
-            SubItemsLists(),
+            const BodyItemDetails(),
+            const SubItemsLists(),
           ],
         ),
       ),

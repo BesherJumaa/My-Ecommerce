@@ -1,11 +1,9 @@
 // ignore_for_file: avoid_print, unused_local_variable
 
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/model/user_model.dart';
-import 'package:ecommercecourse/linkapi.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/material.dart';
@@ -13,7 +11,7 @@ import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';
 import '../../core/constant/color.dart';
-import '../../core/functions/handlingdatacontroller.dart';
+import '../../core/functions/handling_data_controller.dart';
 import '../../data/datasource/remote/auth/login_data.dart';
 
 abstract class LoginController extends GetxController {
@@ -43,6 +41,7 @@ class LoginControllerImp extends LoginController {
       print("Token is : ");
       print(value);
       String? token = value;
+      update();
     });
     email = TextEditingController();
     password = TextEditingController();

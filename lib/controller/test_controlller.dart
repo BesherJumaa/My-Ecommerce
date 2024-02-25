@@ -2,7 +2,7 @@
 // import 'package:ecommercecourse/data/datasource/remote/test_data.dart';
 // import 'package:get/get.dart';
 //
-// import '../core/functions/handlingdatacontroller.dart';
+// import '../core/functions/handling_data_controller.dart';
 //
 // class TestController extends GetxController {
 //   TestData testData = TestData(Get.find());

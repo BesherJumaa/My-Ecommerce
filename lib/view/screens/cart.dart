@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import '../widgets/homeScreen/cart/appbarcart.dart';
 import '../widgets/homeScreen/cart/custom_bottom_navgationbar_cart.dart';
 import '../widgets/homeScreen/cart/customitemscartlist.dart';
-import '../widgets/homeScreen/cart/topcardCart.dart';
+import '../widgets/homeScreen/cart/top_card_cart.dart';
 
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
@@ -52,10 +52,13 @@ class Cart extends StatelessWidget {
                         ...List.generate(controller.data.length, (index) {
                           cartModel = controller.data[index];
                           return CustomItemsCartList(
+                            onTapItem: () {
+                              controller.goToProductDetails(cartModel);
+                            },
                             itemId: cartModel.itemsId!,
                             name: translateDatabase(
                                 cartModel.itemsNameAr!, cartModel.itemsName!),
-                            price: cartModel.itemsPrice!,
+                            price: cartModel.itemsprice!,
                             count: cartModel.countitems!,
                             imageName: cartModel.itemsImage!,
                             onAdd: () async {

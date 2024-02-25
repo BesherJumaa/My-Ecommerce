@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/color.dart';
-import '../../../widgets/auth/custombuttonauth.dart';
+import '../../../widgets/auth/custom_button_auth.dart';
 
 class SuccessResetPassword extends StatelessWidget {
   const SuccessResetPassword({super.key});

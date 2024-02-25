@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../../../core/constant/color.dart';
 
 class ButtonAddToCart extends StatelessWidget {
-  ButtonAddToCart({super.key, required this.onPressed});
-  void Function()? onPressed;
+  const ButtonAddToCart({super.key, required this.onPressed});
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -15,12 +15,12 @@ class ButtonAddToCart extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
         color: AppColor.secondColor,
+        onPressed: onPressed,
         child: Text(
           "50".tr,
           style: const TextStyle(
               fontWeight: FontWeight.bold, color: AppColor.white),
         ),
-        onPressed: onPressed,
       ),
     );
   }

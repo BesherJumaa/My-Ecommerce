@@ -4,15 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../constant/color.dart';
+
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;
-  double? width;
-  double? height;
-  double? imageWidth;
-  double? imageHeight;
+  final double? width;
+  final double? height;
+  final double? imageWidth;
+  final double? imageHeight;
+  final void Function()? onOffline;
 
-  HandlingDataView({
+  const HandlingDataView({
     super.key,
     required this.statusRequest,
     required this.widget,
@@ -20,6 +23,7 @@ class HandlingDataView extends StatelessWidget {
     this.width,
     this.imageHeight,
     this.imageWidth,
+    this.onOffline,
   });
   @override
   Widget build(BuildContext context) {
@@ -57,6 +61,15 @@ class HandlingDataView extends StatelessWidget {
                       child: Text("69".tr),
                     ),
                     Center(child: Lottie.asset(AppImageAssets.offline)),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.primaryColor),
+                      onPressed: onOffline,
+                      child: const Icon(
+                        Icons.refresh_outlined,
+                        color: AppColor.white,
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -88,9 +101,13 @@ class HandlingDataView extends StatelessWidget {
 class HandlingDataRequest extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;
+  final void Function()? onOffline;
 
   const HandlingDataRequest(
-      {super.key, required this.statusRequest, required this.widget});
+      {super.key,
+      required this.statusRequest,
+      required this.widget,
+      this.onOffline});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -108,7 +125,24 @@ class HandlingDataRequest extends StatelessWidget {
             ],
           )
         : statusRequest == StatusRequest.offlineFailure
-            ? Center(child: Lottie.asset(AppImageAssets.offline))
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text("69".tr),
+                  ),
+                  Center(child: Lottie.asset(AppImageAssets.offline)),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.primaryColor),
+                    onPressed: onOffline,
+                    child: const Icon(
+                      Icons.refresh_outlined,
+                      color: AppColor.white,
+                    ),
+                  ),
+                ],
+              )
             : statusRequest == StatusRequest.serverFailure
                 ? Center(
                     child: Lottie.asset(AppImageAssets.server),

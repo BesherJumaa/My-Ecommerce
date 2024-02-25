@@ -7,12 +7,15 @@ class AppImageAssets {
   static const String onBoardingImageTwo = "$rootImage/onboardingtwo.PNG";
   static const String onBoardingImageThree = "$rootImage/onboardingthree.PNG";
   static const String onBoardingImageFour = "$rootImage/onboardingfour.PNG";
+  static const String sale = "$rootImage/sale.png";
   static const String avatar = "$rootImage/avatar.png";
   static const String loading = "$rootLottie/loading.json";
   static const String offline = "$rootLottie/offline.json";
+  static const String search = "$rootLottie/search.json";
   static const String noData = "$rootLottie/nodata.json";
   static const String server = "$rootLottie/server.json";
   static const String shop = "$rootLottie/shop.json";
+  static const String sales = "$rootLottie/sales.json";
   static const String shops = "$rootLottie/shopico.json";
   static const String profile = "$rootLottie/profile.json";
   static const String onBoarding1 = "$rootLottie/onboarding/onBoardingone.json";

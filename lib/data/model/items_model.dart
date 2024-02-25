@@ -9,6 +9,7 @@ class ItemsModel {
   String? itemsActive;
   String? itemsPrice;
   String? itemsDiscount;
+  String? itemsPriceDiscount;
   String? itemsDate;
   String? itemsCat;
   String? categoriesId;
@@ -29,6 +30,7 @@ class ItemsModel {
       this.itemsActive,
       this.itemsPrice,
       this.itemsDiscount,
+      this.itemsPriceDiscount,
       this.itemsDate,
       this.itemsCat,
       this.categoriesId,
@@ -49,6 +51,7 @@ class ItemsModel {
     itemsActive = json["items_active"];
     itemsPrice = json["items_price"];
     itemsDiscount = json["items_discount"];
+    itemsPriceDiscount = json["items_price_discount"];
     itemsDate = json["items_date"];
     itemsCat = json["items_cat"];
     categoriesId = json["categories_id"];
@@ -71,6 +74,7 @@ class ItemsModel {
     data["items_active"] = itemsActive;
     data["items_price"] = itemsPrice;
     data["items_discount"] = itemsDiscount;
+    data["items_price_discount"] = itemsPriceDiscount;
     data["items_date"] = itemsDate;
     data["items_cat"] = itemsCat;
     data["categories_id"] = categoriesId;

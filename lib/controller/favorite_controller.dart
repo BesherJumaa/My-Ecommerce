@@ -1,12 +1,12 @@
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/data/datasource/remote/favorite_data.dart';
+import 'package:ecommercecourse/controller/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../core/class/status_request.dart';
-import '../core/functions/handlingdatacontroller.dart';
-import '../core/services/services.dart';
+import '../core/functions/handling_data_controller.dart';
 
-abstract class FavoriteController extends GetxController {
+abstract class FavoriteController extends SearchMixController {
   setFavorite(id, val);
   addFavorite(String itemsID);
   removeFavorite(String itemsID);
@@ -15,8 +15,6 @@ abstract class FavoriteController extends GetxController {
 class FavoriteControllerImp extends FavoriteController {
   Map isFavorite = {};
   List data = [];
-  late StatusRequest statusRequest;
-  MyServices myServices = Get.find();
   FavoriteData favoriteData = FavoriteData(Get.find());
   @override
   setFavorite(id, val) {

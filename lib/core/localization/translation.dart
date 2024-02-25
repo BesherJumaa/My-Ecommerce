@@ -84,6 +84,16 @@ class MyTranslation extends Translations {
           "76": "تمت الإضافة الى السلة",
           "77": "يوجد لديك @count منتجات في قائمتك",
           "78": "تعطيل الإشعارات",
+          "79":
+              "اسم المستخدم غير صالح، تأكد من كتابة اسم المستخدم باللغة الإنجليزية",
+          "80": "بريد الكتروني غير صالح",
+          "81": "رقم هاتف غير صالح",
+          "82": "لا يمكن ان تكون القيمة أقل من @min",
+          "83": "لا يمكن ان تكون القيمة اكثر من @max",
+          "84": "لا يمكن ان يكون فارغ",
+          "85": "اللغة الانكليزية",
+          "86": "اللغة العربية",
+          "87": "...جاري البحث",
         },
         "en": {
           "1": "Choose Language",
@@ -168,6 +178,15 @@ class MyTranslation extends Translations {
           "76": "Added To Cart",
           "77": "You Have @count Items in Your List",
           "78": "Disable Notifications",
+          "79": "not valid username, Make sure to write username in english",
+          "80": "Not Valid Email",
+          "81": "not valid Phone Number",
+          "82": "value cant be less than @min",
+          "83": "value cant be more than @max",
+          "84": "cant be Empty",
+          "85": "English",
+          "86": "Arabic",
+          "87": "Searching ...",
         }
       };
 }

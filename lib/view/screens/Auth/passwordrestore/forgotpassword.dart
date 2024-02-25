@@ -1,9 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtextform.dart';
-import 'package:ecommercecourse/view/widgets/Auth/customtitleauth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_text_body_auth.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_text_form.dart';
+import 'package:ecommercecourse/view/widgets/Auth/custom_title_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,8 +11,8 @@ import 'package:get/get.dart';
 import '../../../../controller/auth/passwordrestore/forgotpassword_controller.dart';
 import '../../../../core/constant/color.dart';
 
-import '../../../../core/functions/validinput.dart';
-import '../../../widgets/auth/custombuttonauth.dart';
+import '../../../../core/functions/valid_input.dart';
+import '../../../widgets/auth/custom_button_auth.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});

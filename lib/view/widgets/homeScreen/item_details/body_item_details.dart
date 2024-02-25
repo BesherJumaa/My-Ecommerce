@@ -45,7 +45,7 @@ class BodyItemDetails extends GetView<ItemDetailsControllerImp> {
                     onRemove: () {
                       controller.remove();
                     },
-                    price: "${controller.itemsModel.itemsDiscount}",
+                    price: "${controller.itemsModel.itemsPriceDiscount}",
                     count: "${controller.countItems}"),
               ),
             );

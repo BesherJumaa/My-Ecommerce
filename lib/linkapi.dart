@@ -28,6 +28,7 @@ class AppLink {
   static const String home = "$server/home.php";
   //----------items-------
   static const String items = "$server/items/items.php";
+  static const String searchItem = "$server/items/search.php";
   //--------favorite---------
   static const String favoriteAdd = "$server/favorite/add.php";
   static const String favoriteRemove = "$server/favorite/remove.php";

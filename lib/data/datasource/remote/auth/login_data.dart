@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:http/http.dart';
 
 import '../../../../core/class/crud.dart';
@@ -12,7 +14,7 @@ class LoginData {
     String email,
     String password,
   ) async {
-    const maxRetries = 5;
+    const maxRetries = 20;
     for (var i = 0; i < maxRetries; i++) {
       try {
         var response = await crud.postData(AppLink.signIn, {

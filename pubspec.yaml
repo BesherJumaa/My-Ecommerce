@@ -40,7 +40,7 @@ dependencies:
 #  intl: ^0.17.0
   http: ^0.13.4
   # Images
-  cached_network_image: ^3.2.0
+  cached_network_image: ^3.3.1
   image_picker: ^0.7.2+1
   # Animate
   show_up_animation: ^2.0.0

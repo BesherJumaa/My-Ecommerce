@@ -25,14 +25,14 @@ class Language extends GetView<LocaleController> {
             ),
             const SizedBox(height: 30),
             CustomButtonLang(
-                textButton: "ar".tr,
+                textButton: "86".tr,
                 onPressed: () {
                   print("pressed");
                   controller.changeLang("ar");
                   Get.offNamed(AppRoutes.onBoarding);
                 }),
             CustomButtonLang(
-                textButton: "en".tr,
+                textButton: "85".tr,
                 onPressed: () {
                   print("pressed");
                   controller.changeLang("en");

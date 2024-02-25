@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../core/class/status_request.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/strings.dart';
-import '../../core/functions/handlingdatacontroller.dart';
+import '../../core/functions/handling_data_controller.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -60,7 +60,6 @@ class SignUpControllerImp extends SignUpController {
         } else {
           print("Email: ");
           print(email.text);
-          Get.defaultDialog(title: "60".tr, middleText: Strings.existed);
           CoolAlert.show(
               backgroundColor: AppColor.primaryColor,
               context: Get.overlayContext!,

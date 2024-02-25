@@ -1,8 +1,4 @@
-import 'package:ecommercecourse/controller/item_details_controller.dart';
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../../../core/constant/color.dart';
 

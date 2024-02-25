@@ -2,6 +2,7 @@
 
 import 'package:ecommercecourse/controller/myfavorite_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
+import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:ecommercecourse/data/model/myfavorite_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,11 +31,13 @@ class GridViewFavorites extends StatelessWidget {
                 crossAxisCount: 2, childAspectRatio: 0.7),
             itemBuilder: (BuildContext context, index) {
               itemsModel = controller.data[index];
-
               controllerFav.setFavorite(
                   itemsModel.itemsId, itemsModel.favoriteId);
               print("Is Favorite Values : ${controllerFav.isFavorite} ");
               return CustomListFavorites(
+                onTapCard: () {
+                  controller.goToProductDetails(itemsModel as ItemsModel);
+                },
                 itemsModel: itemsModel,
               );
             }),

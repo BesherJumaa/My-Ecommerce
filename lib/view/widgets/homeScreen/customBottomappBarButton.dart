@@ -19,21 +19,25 @@ class CustomBottomAppBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialButton(
-      onPressed: onPressed,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            color: active == true ? AppColor.primaryColor : color,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                color: active == true ? AppColor.primaryColor : color),
-          ),
-        ],
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      child: InkWell(
+        onTap: onPressed,
+        child: Column(
+          // mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              color: active == true ? AppColor.primaryColor : color,
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: active == true ? AppColor.primaryColor : color,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

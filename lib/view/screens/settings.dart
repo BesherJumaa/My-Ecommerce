@@ -2,7 +2,7 @@ import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import '../../controller/auth/logincontroller.dart';
+import '../../controller/auth/login_controller.dart';
 import '../../core/constant/imageassets.dart';
 
 class Settings extends StatelessWidget {

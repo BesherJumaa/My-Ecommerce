@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/controller/auth/logincontroller.dart';
+import 'package:ecommercecourse/controller/auth/login_controller.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/home/custom_card_home.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class CustomDrawer extends GetView<HomeControllerImp> {
     LoginControllerImp controllerImp = LoginControllerImp();
     return Drawer(
       shadowColor: AppColor.primaryColor,
-      backgroundColor: AppColor.white,
+      backgroundColor: AppColor.backGroundColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

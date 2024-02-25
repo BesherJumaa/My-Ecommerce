@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../core/functions/handlingdatacontroller.dart';
+import '../../../core/functions/handling_data_controller.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();

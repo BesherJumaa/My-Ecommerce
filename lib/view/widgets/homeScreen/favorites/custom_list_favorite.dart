@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/items_controller.dart';
 
 import 'package:ecommercecourse/controller/myfavorite_controller.dart';
 import 'package:ecommercecourse/core/functions/translate_database.dart';
-import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:ecommercecourse/data/model/myfavorite_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,17 +15,17 @@ class CustomListFavorites extends StatelessWidget {
   const CustomListFavorites({
     super.key,
     required this.itemsModel,
+    this.onTapCard,
   });
   final MyFavoriteModel itemsModel;
+  final void Function()? onTapCard;
 
   // final bool active;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
-      onTap: () {
-        // controllerImp.goToProductDetails(itemsModels);
-      },
+      onTap: onTapCard,
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

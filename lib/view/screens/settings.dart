@@ -1,4 +1,6 @@
 import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constant/routes.dart';
+import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -35,12 +37,14 @@ class Settings extends StatelessWidget {
           child: Card(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               ListTile(
-                // onTap: () {},
+                onTap: () {},
                 trailing: Switch(onChanged: (val) {}, value: true),
                 title: Text("78".tr),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppRoutes.addressView);
+                },
                 trailing: const Icon(
                   Icons.location_on_outlined,
                   color: AppColor.primaryColor,

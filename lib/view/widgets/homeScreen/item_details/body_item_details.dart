@@ -4,7 +4,6 @@ import 'package:ecommercecourse/controller/item_details_controller.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/item_details/price_and_count.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../core/class/handlingdataview.dart';
 import '../../../../core/class/status_request.dart';
 import '../../../../core/constant/color.dart';

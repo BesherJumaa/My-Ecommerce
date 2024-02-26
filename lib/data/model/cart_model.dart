@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_this
 
 class CartModel {
-  String? itemsprice;
+  String? itemsPriceDiscount;
   String? countitems;
   String? cartId;
   String? cartUsersid;
@@ -20,7 +20,7 @@ class CartModel {
   String? itemsCat;
 
   CartModel(
-      {this.itemsprice,
+      {this.itemsPriceDiscount,
       this.countitems,
       this.cartId,
       this.cartUsersid,
@@ -39,7 +39,7 @@ class CartModel {
       this.itemsCat});
 
   CartModel.fromJson(Map<String, dynamic> json) {
-    itemsprice = json['itemsprice'];
+    itemsPriceDiscount = json['itemsprice'];
     countitems = json['countitems'];
     cartId = json['cart_id'];
     cartUsersid = json['cart_usersid'];
@@ -60,7 +60,7 @@ class CartModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['itemsprice'] = this.itemsprice;
+    data['itemsprice'] = this.itemsPriceDiscount;
     data['countitems'] = this.countitems;
     data['cart_id'] = this.cartId;
     data['cart_usersid'] = this.cartUsersid;

@@ -13,6 +13,11 @@ class AppRoutes {
   static const String productDetails = '/productDetails';
   static const String myFavorite = '/myFavorite';
   static const String cart = '/cart';
+  //--------------ADDRESS-----------
+  static const String addressView = '/address_view';
+  static const String addressAdd = '/address_add';
+  static const String addressAddSecondPart = '/addressAddSecondPart';
+  static const String addressEdit = '/address_edit';
 
   static const String successResetPassword = '/successResetPassword';
   static const String successSignUp = '/successSignUp';

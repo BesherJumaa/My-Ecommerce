@@ -9,6 +9,10 @@ import 'package:ecommercecourse/view/screens/Auth/login.dart';
 import 'package:ecommercecourse/view/screens/Auth/passwordrestore/verifycodesignup.dart';
 import 'package:ecommercecourse/view/screens/Auth/signup.dart';
 import 'package:ecommercecourse/view/screens/Auth/successsignup.dart';
+import 'package:ecommercecourse/view/screens/address/address_add.dart';
+import 'package:ecommercecourse/view/screens/address/address_add_second.dart';
+import 'package:ecommercecourse/view/screens/address/address_edit.dart';
+import 'package:ecommercecourse/view/screens/address/address_view.dart';
 import 'package:ecommercecourse/view/screens/cart.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/items.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/item_details.dart';
@@ -61,25 +65,28 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoutes.cart,
     page: () => const Cart(),
   ),
+  //----------ADDRESS---------------
+  GetPage(
+    name: AppRoutes.addressView,
+    page: () => const AddressView(),
+  ),
+  GetPage(
+    name: AppRoutes.addressEdit,
+    page: () => const AddressEdit(),
+  ),
+  GetPage(
+    name: AppRoutes.addressAdd,
+    page: () => const AddressAdd(),
+  ),
+  GetPage(
+    name: AppRoutes.addressAddSecondPart,
+    page: () => const AddressAddSecondPart(),
+  ),
+
   GetPage(
     name: AppRoutes.language,
     page: () => const Language(),
   ),
 ];
-//
-// Map<String, Widget Function(BuildContext)> routes = {
-//   // On Boarding
-//   AppRoutes.onBoarding: (context) => const OnBoarding(),
-//   //Language
-//   AppRoutes.language: (context) => const Language(),
-//   //Auth
-//   AppRoutes.login: (context) => const Login(),
-//   AppRoutes.signUp: (context) => const SignUp(),
-//
-//   AppRoutes.forgotPassword: (context) => const ForgotPassword(),
-//   AppRoutes.verifyCode: (context) => const VerifyCode(),
-//   AppRoutes.verifyCodeSignUp: (context) => const VerifyCodeSignUp(),
-//   AppRoutes.resetPassword: (context) => const ResetPassword(),
-//   AppRoutes.successResetPassword: (context) => const SuccessResetPassword(),
-//   AppRoutes.successSignUp: (context) => const SuccessSignUp(),
+
 // };

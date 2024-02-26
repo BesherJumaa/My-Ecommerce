@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 validInput(String val, int min, int max, String type) {
+  if (type == "") {}
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
       return "79".tr;

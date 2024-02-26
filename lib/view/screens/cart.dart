@@ -58,7 +58,7 @@ class Cart extends StatelessWidget {
                             itemId: cartModel.itemsId!,
                             name: translateDatabase(
                                 cartModel.itemsNameAr!, cartModel.itemsName!),
-                            price: cartModel.itemsprice!,
+                            price: cartModel.itemsPriceDiscount!,
                             count: cartModel.countitems!,
                             imageName: cartModel.itemsImage!,
                             onAdd: () async {

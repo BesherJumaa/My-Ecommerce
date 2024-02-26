@@ -4,6 +4,10 @@ class MyTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          "normal": "خريطة افتراضية",
+          "satellite": "قمر صناعي",
+          "hybrid": "هجين",
+          "terrain": "تضاريس",
           "1": "اختر اللغة",
           "2": "اختر المنتجات",
           "3": "نحن لدينا 100 الف منتج  , اختر \n  منتجك  من  متجرنا",
@@ -94,8 +98,22 @@ class MyTranslation extends Translations {
           "85": "اللغة الانكليزية",
           "86": "اللغة العربية",
           "87": "...جاري البحث",
+          "88": "إضافة عنوان جديد",
+          "89": "الرجاء السماح بالصلاحيات المطلوبة",
+          "90": "لا يمكن استخدام التطبيق بدون الصلاحيات المطلوبة",
+          "91": "نوع الخريطة",
+          "92": "البلد",
+          "93": "المحافظة",
+          "94": "المدينة",
+          "95": "الشارع",
+          "96": "اسم الموقع",
+          "97": "تعديل الموقع",
         },
         "en": {
+          "normal": "Default Map",
+          "satellite": "Satellite",
+          "hybrid": "Hybrid",
+          "terrain": "Terrain",
           "1": "Choose Language",
           "2": "Choose Product",
           "3":
@@ -187,6 +205,16 @@ class MyTranslation extends Translations {
           "85": "English",
           "86": "Arabic",
           "87": "Searching ...",
+          "88": "Add New Address",
+          "89": "Please Allow The Required Permissions",
+          "90": "You Cant Use This App Without the Required Permissions",
+          "91": "Map Type",
+          "92": "Country",
+          "93": "Governorate",
+          "94": "City",
+          "95": "Street",
+          "96": "Address Name",
+          "97": "Edit My Address",
         }
       };
 }

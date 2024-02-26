@@ -9,6 +9,11 @@ ThemeData themeEnglish = ThemeData(
     color: AppColor.primaryColor,
     foregroundColor: AppColor.white,
   ),
+  dropdownMenuTheme: const DropdownMenuThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+    focusColor: AppColor.primaryColor,
+    fillColor: AppColor.primaryColor,
+  )),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: AppColor.white,
     elevation: 5,
@@ -55,6 +60,9 @@ ThemeData themeArabic = ThemeData(
     color: AppColor.primaryColor,
     foregroundColor: AppColor.white,
   ),
+  dropdownMenuTheme: const DropdownMenuThemeData(
+      inputDecorationTheme:
+          InputDecorationTheme(focusColor: AppColor.primaryColor)),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: AppColor.white,
     elevation: 5,

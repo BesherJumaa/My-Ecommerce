@@ -4,6 +4,7 @@ import 'package:ecommercecourse/controller/myfavorite_controller.dart';
 import 'package:ecommercecourse/core/functions/translate_database.dart';
 import 'package:ecommercecourse/data/model/myfavorite_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -84,19 +85,20 @@ class CustomListFavorites extends StatelessWidget {
                   Text(
                     "47".tr,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 21),
                   ),
                   Container(
                     alignment: Alignment.bottomCenter,
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                            5,
-                            (index) => const Icon(
-                                  Icons.star,
-                                  size: 15,
-                                ))
-                      ],
+                    child: RatingBarIndicator(
+                      rating: double.parse(itemsModel.rating!),
+                      itemBuilder: (context, index) => const Icon(
+                        Icons.star,
+                        color: AppColor.amber,
+                        // color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: 22.0,
+                      direction: Axis.horizontal,
                     ),
                   ),
                 ],

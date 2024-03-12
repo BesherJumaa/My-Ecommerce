@@ -3,6 +3,7 @@ import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/address_model.dart';
+import 'package:ecommercecourse/view/screens/address/address_add.dart';
 import 'package:ecommercecourse/view/widgets/address/custom_address_items_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,9 @@ class AddressView extends StatelessWidget {
       // floatingActionButtonLocation: controller.lang == "en"? FloatingActionButtonLocation.startDocked : FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.toNamed(AppRoutes.addressAdd);
+          Get.to(const AddressAdd(),
+              transition: Transition.downToUp,
+              duration: const Duration(seconds: 1));
         },
         child: const Icon(
           Icons.add,
@@ -48,10 +51,12 @@ class AddressView extends StatelessWidget {
                           city: addressModel.addressCity!,
                           street: addressModel.addressStreet!,
                           onEdit: () {
-                            controller.goToEdit(addressModel.addressId);
+                            controller
+                                .goToEdit(controller.data[index].addressId);
                           },
                           onRemove: () {
-                            controller.deleteAddress(addressModel.addressId);
+                            controller.deleteAddress(
+                                controller.data[index].addressId);
                           });
                     },
                   ),

@@ -10,6 +10,7 @@ class AppColor {
   static const Color primaryColor = Color(0xff491396);
   static const Color secondColor = Color(0xff7f14ff);
   static const Color thirdColor = Color(0xff8a54dc);
+  static const Color fifthColor = Color(0xffccb3f1);
   // -------------Green Theme
   // static const Color primaryColor = Color(0xff067208);
   // static const Color secondColor = Color(0xff19ad1d);
@@ -27,6 +28,8 @@ class AppColor {
   static const Color backGroundColor = Color(0xfff8f9fc);
   static const Color green = Color(0xFF7EE749);
   static const Color red = Color(0xFFAD2626);
+  static const Color amber = Color(0xFFFFC507);
+
   // static const MaterialColor primarymaterialcolor = Colors.deepOrange;
   static const MaterialColor primarymaterialcolor = Colors.deepPurple;
   // static const MaterialColor primarymaterialcolor = Colors.green;

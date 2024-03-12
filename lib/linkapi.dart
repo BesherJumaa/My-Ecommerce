@@ -47,4 +47,16 @@ class AppLink {
   static const String addressDelete = "$server/address/delete.php";
   static const String addressView = "$server/address/view.php";
   static const String addressViewById = "$server/address/viewbyid.php";
+  //----Coupon
+  static const String coupon = "$server/coupon/checkcoupon.php";
+  //--------Order-----------
+  static const String ordersCheckout = "$server/orders/checkout.php";
+  static const String orderPending = "$server/orders/pending.php";
+  static const String orderDetails = "$server/orders/details.php";
+  static const String orderDelete = "$server/orders/delete.php";
+  static const String orderArchive = "$server/orders/archive.php";
+  //-------Offers
+  static const String offers = "$server/offers.php";
+  //---------Rating
+  static const String rating = "$server/rating.php";
 }

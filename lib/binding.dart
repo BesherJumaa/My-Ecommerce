@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'controller/auth/passwordrestore/resetpassword_controller.dart';
 import 'controller/auth/signupcontroller.dart';
 
-class Mybinding extends Bindings {
+class MyBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => SignUpControllerImp());

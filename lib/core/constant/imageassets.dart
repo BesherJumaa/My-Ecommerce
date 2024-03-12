@@ -18,6 +18,10 @@ class AppImageAssets {
   static const String sales = "$rootLottie/sales.json";
   static const String shops = "$rootLottie/shopico.json";
   static const String profile = "$rootLottie/profile.json";
+  static const String cash = "$rootLottie/cash.json";
+  static const String card = "$rootLottie/card.json";
+  static const String delivery = "$rootLottie/delivery.json";
+  static const String noDelivery = "$rootLottie/noDelivery.json";
   static const String onBoarding1 = "$rootLottie/onboarding/onBoardingone.json";
   static const String onBoarding2 = "$rootLottie/onboarding/onBoardingtow.json";
   static const String onBoarding3 =

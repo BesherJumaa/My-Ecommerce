@@ -3,6 +3,7 @@
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
+import 'package:ecommercecourse/view/cart/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -162,7 +163,7 @@ class ItemDetailsControllerImp extends ItemDetailsController {
 
   @override
   goToCart() {
-    Get.toNamed(AppRoutes.cart);
-    throw UnimplementedError();
+    Get.to(const Cart(),
+        transition: Transition.downToUp, duration: const Duration(seconds: 1));
   }
 }

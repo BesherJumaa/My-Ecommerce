@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/view/screens/homeScreens/item_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ import '../data/model/items_model.dart';
 
 class SearchMixController extends GetxController {
   bool isSearch = false;
-  TextEditingController? search;
+  late TextEditingController search;
   List<ItemsModel> dataSearch = [];
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
@@ -47,7 +48,9 @@ class SearchMixController extends GetxController {
   }
 
   goToProductDetails(itemsModel) {
-    Get.toNamed(AppRoutes.productDetails,
-        arguments: {"itemsModel": itemsModel});
+    Get.to(const ItemDetails(),
+        arguments: {"itemsModel": itemsModel},
+        transition: Transition.size,
+        duration: const Duration(seconds: 1));
   }
 }

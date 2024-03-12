@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/middleware/mymiddleware.dart';
+import 'package:ecommercecourse/view/cart/checkout.dart';
 
 import 'package:ecommercecourse/view/screens/Auth/passwordrestore/forgotpassword.dart';
 import 'package:ecommercecourse/view/screens/Auth/passwordrestore/resetpassword.dart';
@@ -13,14 +14,18 @@ import 'package:ecommercecourse/view/screens/address/address_add.dart';
 import 'package:ecommercecourse/view/screens/address/address_add_second.dart';
 import 'package:ecommercecourse/view/screens/address/address_edit.dart';
 import 'package:ecommercecourse/view/screens/address/address_view.dart';
-import 'package:ecommercecourse/view/screens/cart.dart';
+import 'package:ecommercecourse/view/cart/cart.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/items.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/item_details.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:ecommercecourse/view/screens/home_screen.dart';
 import 'package:ecommercecourse/view/screens/language.dart';
 import 'package:ecommercecourse/view/screens/language_app.dart';
+import 'package:ecommercecourse/view/screens/offers.dart';
 import 'package:ecommercecourse/view/screens/onboarding.dart';
+import 'package:ecommercecourse/view/screens/orders/archive.dart';
+import 'package:ecommercecourse/view/screens/orders/details.dart';
+import 'package:ecommercecourse/view/screens/orders/pending.dart';
 
 import 'package:get/get.dart';
 
@@ -83,6 +88,29 @@ List<GetPage<dynamic>>? routes = [
     page: () => const AddressAddSecondPart(),
   ),
 
+  //--------CheckOut
+  GetPage(
+    name: AppRoutes.checkout,
+    page: () => const Checkout(),
+  ),
+//-----Orders
+  GetPage(
+    name: AppRoutes.ordersDetails,
+    page: () => const OrdersDetails(),
+  ),
+  GetPage(
+    name: AppRoutes.ordersArchive,
+    page: () => const OrdersArchive(),
+  ),
+  GetPage(
+    name: AppRoutes.ordersPending,
+    page: () => const OrdersPending(),
+  ),
+
+  GetPage(
+    name: AppRoutes.offers,
+    page: () => const Offers(),
+  ),
   GetPage(
     name: AppRoutes.language,
     page: () => const Language(),

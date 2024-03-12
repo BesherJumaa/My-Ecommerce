@@ -1,5 +1,7 @@
 import 'package:ecommercecourse/view/screens/homeScreens/home.dart';
 import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
+import 'package:ecommercecourse/view/screens/offers.dart';
+import 'package:ecommercecourse/view/screens/orders/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../view/screens/settings.dart';
@@ -13,13 +15,8 @@ class HomeScreenControllerImp extends HomeScreenController {
   late PageController pageController;
   List<Widget> listPage = [
     const HomePage(),
-    const MyFavorite(),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(child: Text("46".tr)),
-      ],
-    ),
+    const Offers(),
+    const OrdersPending(),
     const Settings(),
   ];
 
@@ -29,12 +26,12 @@ class HomeScreenControllerImp extends HomeScreenController {
       "icon": Icons.home_outlined,
     },
     {
-      "title": "45".tr,
-      "icon": Icons.favorite_border_outlined,
+      "title": "133".tr,
+      "icon": Icons.sell_outlined,
     },
     {
-      "title": "46".tr,
-      "icon": Icons.person_2_outlined,
+      "title": "114".tr,
+      "icon": Icons.delivery_dining_outlined,
     },
     {
       "title": "44".tr,

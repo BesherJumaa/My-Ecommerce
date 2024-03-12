@@ -24,6 +24,7 @@ class AuthTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 15),
       child: TextFormField(
+        textDirection: TextDirection.ltr,
         keyboardType: keyboardtype,
         controller: mycontroller,
         autovalidateMode: AutovalidateMode.onUserInteraction,

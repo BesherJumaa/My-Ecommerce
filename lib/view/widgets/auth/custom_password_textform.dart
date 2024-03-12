@@ -27,6 +27,7 @@ class AuthPasswordTextFormField extends StatelessWidget {
       margin: const EdgeInsets.only(top: 15),
       child: Obx(
         () => TextFormField(
+          textDirection: TextDirection.ltr,
           controller: mycontroller,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: validator,

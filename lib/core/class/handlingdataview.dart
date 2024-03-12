@@ -33,21 +33,23 @@ class HandlingDataView extends StatelessWidget {
         ? SizedBox(
             height: height,
             width: width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: Text("48".tr),
-                ),
-                Center(
-                  child: Lottie.asset(
-                    width: imageWidth,
-                    height: imageHeight,
-                    AppImageAssets.loading,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text("48".tr),
                   ),
-                ),
-              ],
+                  Center(
+                    child: Lottie.asset(
+                      width: imageWidth,
+                      height: imageHeight,
+                      AppImageAssets.loading,
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         : statusRequest == StatusRequest.offlineFailure

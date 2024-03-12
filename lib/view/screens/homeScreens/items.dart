@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/view/widgets/custom_app_bar.dart';
 import 'package:ecommercecourse/view/widgets/homeScreen/home/customappbar.dart';
 import 'package:ecommercecourse/view/screens/search_items.dart';
@@ -38,14 +39,23 @@ class Items extends StatelessWidget {
               titleAppBar: "42".tr,
             ),
             controller.isSearch == false
-                ? const Column(
+                ? Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      ListCategoriesItems(),
-                      GridViewItems(),
+                      const ListCategoriesItems(),
+                      HandlingDataView(
+                        width: 200,
+                        height: 230,
+                        statusRequest: controller.statusRequest,
+                        widget: GridViewItems(
+                          controller: ItemsControllerImp(),
+                          statusRequest: controller.statusRequest,
+                          data: controller.data,
+                        ),
+                      ),
                     ],
                   )
                 : GridViewSearchItems(

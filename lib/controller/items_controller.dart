@@ -2,6 +2,7 @@
 
 import 'package:ecommercecourse/data/datasource/remote/items_data.dart';
 import 'package:ecommercecourse/controller/search_controller.dart';
+import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../core/class/status_request.dart';
@@ -22,7 +23,7 @@ class ItemsControllerImp extends ItemsController {
   String? catID;
   String? userId;
   bool favorite = false;
-  List data = [];
+  List<ItemsModel> data = [];
 
   ItemsData itemsData = ItemsData(Get.find());
   @override
@@ -72,7 +73,8 @@ class ItemsControllerImp extends ItemsController {
     // print("response is  : ${response}");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        data.addAll(response['data']);
+        List dataList = response['data'];
+        data.addAll(dataList.map((e) => ItemsModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }

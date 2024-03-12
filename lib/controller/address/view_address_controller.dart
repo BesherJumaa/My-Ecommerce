@@ -4,6 +4,7 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/address_data.dart';
 import 'package:ecommercecourse/data/model/address_model.dart';
 import 'package:ecommercecourse/linkapi.dart';
+import 'package:ecommercecourse/view/screens/address/address_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constant/color.dart';
@@ -72,9 +73,12 @@ class AddressViewController extends GetxController {
   }
 
   goToEdit(addressId) {
-    Get.toNamed(AppRoutes.addressEdit, arguments: {
-      "addressId": addressId,
-    });
+    Get.to(const AddressEdit(),
+        arguments: {
+          "addressId": addressId,
+        },
+        transition: Transition.size,
+        duration: const Duration(seconds: 1));
   }
 
   @override

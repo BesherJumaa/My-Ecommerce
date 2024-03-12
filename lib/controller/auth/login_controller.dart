@@ -74,14 +74,14 @@ class LoginControllerImp extends LoginController {
             myServices.sharedPreferences
                 .setString("phone", userModel.usersPhone!);
             myServices.sharedPreferences.setString("step", "2");
-            Get.rawSnackbar(
-                title:
-                    "Welcome ${myServices.sharedPreferences.getString("username")} !",
+            Get.snackbar(
+                "Welcome ${myServices.sharedPreferences.getString("username")} !",
+                "57".tr,
                 icon: const Icon(
                   Icons.check_box,
                   color: AppColor.green,
                 ),
-                messageText: Text("57".tr),
+                colorText: AppColor.white,
                 backgroundColor: AppColor.primaryColor,
                 isDismissible: true);
             Get.offNamed(AppRoutes.homePage);

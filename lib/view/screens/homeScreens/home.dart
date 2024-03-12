@@ -1,5 +1,7 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/controller/homescreen_controller.dart';
+import 'package:ecommercecourse/core/functions/translate_database.dart';
+import 'package:ecommercecourse/data/model/settings_model.dart';
 import 'package:ecommercecourse/view/screens/search_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +18,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
-    // Get.put(TestController());
+
     return GetBuilder<HomeControllerImp>(
       builder: (controller) {
         return Container(
@@ -46,9 +48,11 @@ class HomePage extends StatelessWidget {
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const CustomCardHome(
-                                title: "A Summer surprise",
-                                body: "CashBack 20%"),
+                            CustomCardHome(
+                                title:
+                                    "${translateDatabase(controller.settingsModel.settingsTitlehomeAr, controller.settingsModel.settingsTitlehome)}",
+                                body:
+                                    "${translateDatabase(controller.settingsModel.settingsBodyhomeAr, controller.settingsModel.settingsBodyhome)}"),
                             CustomTitleHome(
                               title: "40".tr,
                             ),
@@ -58,7 +62,7 @@ class HomePage extends StatelessWidget {
                           ],
                         )
                       : GridViewSearchItems(
-                          controller: HomeScreenControllerImp(),
+                          controller: HomeControllerImp(),
                           dataSearch: controller.dataSearch,
                           statusRequest: controller.statusRequest,
                         ),

@@ -14,6 +14,13 @@ class MyFavoriteModel {
   String? itemsDiscount;
   String? itemsDate;
   String? itemsCat;
+  String? categoriesId;
+  String? categoriesName;
+  String? categoriesNameAr;
+  String? categoriesImage;
+  String? categoriesDatetime;
+  String? rating;
+  String? itemsPriceDiscount;
   String? usersId;
 
   MyFavoriteModel(
@@ -32,6 +39,13 @@ class MyFavoriteModel {
       this.itemsDiscount,
       this.itemsDate,
       this.itemsCat,
+      this.categoriesId,
+      this.categoriesName,
+      this.categoriesNameAr,
+      this.categoriesImage,
+      this.categoriesDatetime,
+      this.rating,
+      this.itemsPriceDiscount,
       this.usersId});
 
   MyFavoriteModel.fromJson(Map<String, dynamic> json) {
@@ -50,27 +64,41 @@ class MyFavoriteModel {
     itemsDiscount = json['items_discount'];
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
+    categoriesId = json['categories_id'];
+    categoriesName = json['categories_name'];
+    categoriesNameAr = json['categories_name_ar'];
+    categoriesImage = json['categories_image'];
+    categoriesDatetime = json['categories_datetime'];
+    rating = json['rating'];
+    itemsPriceDiscount = json['items_price_discount'];
     usersId = json['users_id'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['favorite_id'] = favoriteId;
-    data['favorite_usersid'] = favoriteUsersid;
-    data['favorite_itemsid'] = favoriteItemsid;
-    data['items_id'] = itemsId;
-    data['items_name'] = itemsName;
-    data['items_name_ar'] = itemsNameAr;
-    data['items_desc'] = itemsDesc;
-    data['items_desc_ar'] = itemsDescAr;
-    data['items_image'] = itemsImage;
-    data['items_count'] = itemsCount;
-    data['items_active'] = itemsActive;
-    data['items_price'] = itemsPrice;
-    data['items_discount'] = itemsDiscount;
-    data['items_date'] = itemsDate;
-    data['items_cat'] = itemsCat;
-    data['users_id'] = usersId;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['favorite_id'] = this.favoriteId;
+    data['favorite_usersid'] = this.favoriteUsersid;
+    data['favorite_itemsid'] = this.favoriteItemsid;
+    data['items_id'] = this.itemsId;
+    data['items_name'] = this.itemsName;
+    data['items_name_ar'] = this.itemsNameAr;
+    data['items_desc'] = this.itemsDesc;
+    data['items_desc_ar'] = this.itemsDescAr;
+    data['items_image'] = this.itemsImage;
+    data['items_count'] = this.itemsCount;
+    data['items_active'] = this.itemsActive;
+    data['items_price'] = this.itemsPrice;
+    data['items_discount'] = this.itemsDiscount;
+    data['items_date'] = this.itemsDate;
+    data['items_cat'] = this.itemsCat;
+    data['categories_id'] = this.categoriesId;
+    data['categories_name'] = this.categoriesName;
+    data['categories_name_ar'] = this.categoriesNameAr;
+    data['categories_image'] = this.categoriesImage;
+    data['categories_datetime'] = this.categoriesDatetime;
+    data['rating'] = this.rating;
+    data['items_price_discount'] = this.itemsPriceDiscount;
+    data['users_id'] = this.usersId;
     return data;
   }
 }

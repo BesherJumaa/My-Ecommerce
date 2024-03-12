@@ -1,9 +1,9 @@
 import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/linkapi.dart';
+import 'package:ecommercecourse/view/screens/address/address_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../controller/auth/login_controller.dart';
 import '../../core/constant/imageassets.dart';
 
@@ -43,7 +43,9 @@ class Settings extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {
-                  Get.toNamed(AppRoutes.addressView);
+                  Get.to(const AddressView(),
+                      transition: Transition.fade,
+                      duration: const Duration(seconds: 1));
                 },
                 trailing: const Icon(
                   Icons.location_on_outlined,
@@ -60,7 +62,10 @@ class Settings extends StatelessWidget {
                 title: Text("67".tr),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () async {
+                  await launchUrl(Uri.parse("tel:0988550610"));
+                  // await launchUrl(Uri.parse("https://wa.me/+963988550610"));
+                },
                 trailing: const Icon(
                   Icons.phone_callback_outlined,
                   color: AppColor.primaryColor,

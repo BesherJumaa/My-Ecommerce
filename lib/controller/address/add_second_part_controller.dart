@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/controller/address/view_address_controller.dart';
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
@@ -29,23 +31,28 @@ class AddressAddSecondPartController extends GetxController {
   }
 
   getAdressDetails() async {
-    List<Placemark> placemarks = await placemarkFromCoordinates(lat!, long!);
-    print("==========Name : ");
-    print(placemarks[0].name);
-    print("==========country : ");
-    print(placemarks[0].country);
-    print("==========administrativeArea : ");
-    print(placemarks[0].administrativeArea);
-    print("==========city : ");
-    print(placemarks[0].locality);
-    print("==========Street : ");
-    print(placemarks[0].street);
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(lat!, long!);
 
-    name.text = "Home";
-    country.text = placemarks[0].country!;
-    governorate.text = placemarks[0].administrativeArea!;
-    city.text = placemarks[0].locality!;
-    street.text = placemarks[0].street!;
+      print("==========Name : ");
+      print(placemarks[0].name);
+      print("==========country : ");
+      print(placemarks[0].country);
+      print("==========administrativeArea : ");
+      print(placemarks[0].administrativeArea);
+      print("==========city : ");
+      print(placemarks[0].locality);
+      print("==========Street : ");
+      print(placemarks[0].street);
+
+      name.text = "Home";
+      country.text = placemarks[0].country!;
+      governorate.text = placemarks[0].administrativeArea!;
+      city.text = placemarks[0].locality!;
+      street.text = placemarks[0].street!;
+    } catch (e) {
+      print('Error fetching placemarks: $e');
+    }
   }
 
   addAddress() async {
@@ -61,7 +68,7 @@ class AddressAddSecondPartController extends GetxController {
         lat.toString(),
         long.toString());
     statusRequest = handlingData(response);
-    print("response is  : ${response}");
+    print("response is  : $response");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.offNamed(

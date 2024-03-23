@@ -1,12 +1,10 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../controller/favorite_controller.dart';
-import '../../../../controller/items_controller.dart';
 import '../../../../core/class/status_request.dart';
 import 'custom_list_items.dart';
 

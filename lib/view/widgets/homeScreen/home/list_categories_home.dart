@@ -71,6 +71,7 @@ class CategoriesHome extends GetView<HomeControllerImp> {
                 );
               },
               "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
+              color: AppColor.white,
             ),
           ),
           Text(translateDatabase(categoriesModel.categoriesNameAr!,

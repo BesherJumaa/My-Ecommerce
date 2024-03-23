@@ -29,4 +29,6 @@ class AppRoutes {
   // -----------------------
   static const String successResetPassword = '/successResetPassword';
   static const String successSignUp = '/successSignUp';
+  //------------
+  static const String notification = '/notification';
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:shimmer/shimmer.dart';
+
+import '../../../../core/constant/color.dart';
 
 class CustomAppBarHome extends GetView<HomeControllerImp>
     implements PreferredSizeWidget {
@@ -12,8 +15,13 @@ class CustomAppBarHome extends GetView<HomeControllerImp>
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        "${controller.username}",
+      title: Shimmer.fromColors(
+        baseColor: AppColor.white,
+        highlightColor: AppColor.black,
+        period: const Duration(seconds: 10),
+        child: Text(
+          "${controller.username}",
+        ),
       ),
       actions: [
         Column(

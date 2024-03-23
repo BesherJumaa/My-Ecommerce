@@ -21,6 +21,7 @@ import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:ecommercecourse/view/screens/home_screen.dart';
 import 'package:ecommercecourse/view/screens/language.dart';
 import 'package:ecommercecourse/view/screens/language_app.dart';
+import 'package:ecommercecourse/view/screens/notification.dart';
 import 'package:ecommercecourse/view/screens/offers.dart';
 import 'package:ecommercecourse/view/screens/onboarding.dart';
 import 'package:ecommercecourse/view/screens/orders/archive.dart';
@@ -106,7 +107,8 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoutes.ordersPending,
     page: () => const OrdersPending(),
   ),
-
+//------Notification
+  GetPage(name: AppRoutes.notification, page: () => const Notifications()),
   GetPage(
     name: AppRoutes.offers,
     page: () => const Offers(),

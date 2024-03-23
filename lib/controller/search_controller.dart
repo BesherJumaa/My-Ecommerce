@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../core/class/status_request.dart';
-import '../core/constant/routes.dart';
 import '../core/functions/handling_data_controller.dart';
 import '../core/services/services.dart';
 import '../data/datasource/remote/home_data.dart';
@@ -32,7 +31,7 @@ class SearchMixController extends GetxController {
 
   searchData() async {
     statusRequest = StatusRequest.loading;
-    var response = await homeData.searchData(search!.text);
+    var response = await homeData.searchData(search.text);
     statusRequest = handlingData(response);
     // print("response is  : ${response}");
     if (StatusRequest.success == statusRequest) {

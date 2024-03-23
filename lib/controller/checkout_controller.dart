@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
@@ -6,21 +8,20 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/address_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/checkout_data.dart';
 import 'package:ecommercecourse/data/model/address_model.dart';
-import 'package:ecommercecourse/data/model/coupon_model.dart';
-import 'package:ecommercecourse/view/screens/homeScreens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../core/constant/color.dart';
+import '../view/screens/address/address_add.dart';
 
 abstract class CheckoutController extends GetxController {
-  choosePaymentMethod(String paymentMethod);
-  chooseDeliveryType(String deliveryType);
-  chooseShippingAddress(String addressID);
+  choosePaymentMethod(String val);
+  chooseDeliveryType(String val);
+  chooseShippingAddress(String val);
   getShippingAddress();
   checkout();
+  addAddress();
 }
 
 class CheckoutControllerImp extends CheckoutController {
@@ -64,9 +65,11 @@ class CheckoutControllerImp extends CheckoutController {
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
         List listData = response['data'];
+
         dataAddress.addAll(listData.map((e) => AddressModel.fromJson(e)));
+        addressID = dataAddress[0].addressId;
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.none;
       }
     }
     update();
@@ -108,6 +111,29 @@ class CheckoutControllerImp extends CheckoutController {
         titleTextStyle: const TextStyle(
             color: AppColor.red, fontSize: 20, fontWeight: FontWeight.bold),
         text: "113".tr,
+      );
+    }
+    if (dataAddress.isEmpty && deliveryType != null) {
+      CoolAlert.show(
+        context: Get.overlayContext!,
+        confirmBtnText: "88".tr,
+        showCancelBtn: false,
+        backgroundColor: AppColor.primaryColor,
+        animType: CoolAlertAnimType.slideInDown,
+        borderRadius: BorderSide.strokeAlignCenter,
+        type: CoolAlertType.error,
+        // autoCloseDuration: const Duration(seconds: 2),
+        loopAnimation: true,
+        confirmBtnColor: AppColor.primaryColor,
+        cancelBtnText: "62".tr,
+        title: "600".tr,
+        titleTextStyle: const TextStyle(
+          color: AppColor.red,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        text: "141".tr,
+        onConfirmBtnTap: () {},
       );
     }
 
@@ -164,5 +190,11 @@ class CheckoutControllerImp extends CheckoutController {
 
     getShippingAddress();
     super.onInit();
+  }
+
+  @override
+  addAddress() {
+    Get.to(() => const AddressAdd(),
+        transition: Transition.downToUp, duration: const Duration(seconds: 1));
   }
 }

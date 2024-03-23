@@ -1,10 +1,9 @@
+import 'package:ecommercecourse/core/functions/fbmconfig.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
 import '../constant/apptheme.dart';
-import '../constant/color.dart';
 
 class LocaleController extends GetxController {
   Locale? language;
@@ -23,7 +22,8 @@ class LocaleController extends GetxController {
   @override
   void onInit() {
     // TODO: implement onInit
-
+    requestPermissionNotifications();
+    fbmConfig();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {
       language = const Locale("ar");

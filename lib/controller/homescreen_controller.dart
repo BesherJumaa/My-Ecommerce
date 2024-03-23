@@ -1,5 +1,4 @@
 import 'package:ecommercecourse/view/screens/homeScreens/home.dart';
-import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:ecommercecourse/view/screens/offers.dart';
 import 'package:ecommercecourse/view/screens/orders/pending.dart';
 import 'package:flutter/material.dart';
@@ -23,19 +22,19 @@ class HomeScreenControllerImp extends HomeScreenController {
   List bottomAppBar = [
     {
       "title": "43".tr,
-      "icon": Icons.home_outlined,
+      "icon": Icons.home,
     },
     {
       "title": "133".tr,
-      "icon": Icons.sell_outlined,
+      "icon": Icons.sell,
     },
     {
       "title": "114".tr,
-      "icon": Icons.delivery_dining_outlined,
+      "icon": Icons.delivery_dining,
     },
     {
       "title": "44".tr,
-      "icon": Icons.settings_outlined,
+      "icon": Icons.settings,
     }
   ];
 

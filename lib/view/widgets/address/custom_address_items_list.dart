@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/linkapi.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsAddressList extends StatelessWidget {

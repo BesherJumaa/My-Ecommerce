@@ -6,6 +6,7 @@ import 'package:ecommercecourse/core/functions/translate_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../controller/orders/order_detail_controller.dart';
 
@@ -14,7 +15,7 @@ class OrdersDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OrdersDetailsController controller = Get.put(OrdersDetailsController());
+    Get.put(OrdersDetailsController());
     return Scaffold(
       appBar: AppBar(
         title: Text('120'.tr),
@@ -72,16 +73,20 @@ class OrdersDetails extends StatelessWidget {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                                "123".trParams({
-                                  "count": controller
-                                      .ordersModel.ordersTotalprice
-                                      .toString()
-                                }),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: AppColor.primaryColor,
-                                    fontWeight: FontWeight.bold)),
+                            child: Shimmer.fromColors(
+                              baseColor: AppColor.primaryColor,
+                              highlightColor: AppColor.secondColor,
+                              child: Text(
+                                  "123".trParams({
+                                    "count": controller
+                                        .ordersModel.ordersTotalprice
+                                        .toString()
+                                  }),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontWeight: FontWeight.bold)),
+                            ),
                           ),
                         ],
                       ),
@@ -89,15 +94,14 @@ class OrdersDetails extends StatelessWidget {
                   ),
                   if (controller.ordersModel.ordersType == "0")
                     Card(
-                      child: Container(
-                          child: ListTile(
+                      child: ListTile(
                         title: Text("108".tr,
                             style: TextStyle(
                                 color: AppColor.primaryColor,
                                 fontWeight: FontWeight.bold)),
                         subtitle: Text(
                             "${controller.ordersModel.addressCity} ${controller.ordersModel.addressStreet}"),
-                      )),
+                      ),
                     ),
                   if (controller.ordersModel.ordersType == "0")
                     Card(

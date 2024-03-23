@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/controller/address/add_second_part_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/core/shared/custom_button.dart';
@@ -13,8 +15,8 @@ class AddressAddSecondPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    AddressAddSecondPartController controller =
-        Get.put(AddressAddSecondPartController());
+
+    Get.put(AddressAddSecondPartController());
     return Scaffold(
       appBar: AppBar(
         title: Text("88".tr),
@@ -27,11 +29,13 @@ class AddressAddSecondPart extends StatelessWidget {
             child: ListView(
               children: [
                 CustomTextFormFields(
+                  hintText: "136".tr,
                   textBox: "96".tr,
                   mycontroller: controller.name,
                   iconPrefix: Icons.drive_file_rename_outline,
                 ),
                 CustomTextFormFields(
+                  hintText: "137".tr,
                   textBox: "92".tr,
                   mycontroller: controller.country,
                   validator: (String? val) {
@@ -41,6 +45,7 @@ class AddressAddSecondPart extends StatelessWidget {
                   iconPrefix: Icons.flag,
                 ),
                 CustomTextFormFields(
+                  hintText: "138".tr,
                   textBox: "93".tr,
                   mycontroller: controller.governorate,
                   validator: (String? val) {
@@ -50,6 +55,7 @@ class AddressAddSecondPart extends StatelessWidget {
                   iconPrefix: Icons.place,
                 ),
                 CustomTextFormFields(
+                  hintText: "139".tr,
                   textBox: "94".tr,
                   mycontroller: controller.city,
                   validator: (String? val) {
@@ -60,6 +66,7 @@ class AddressAddSecondPart extends StatelessWidget {
                   keyboardtype: TextInputType.multiline,
                 ),
                 CustomTextFormFields(
+                  hintText: "140".tr,
                   textBox: "95".tr,
                   mycontroller: controller.street,
                   validator: (String? val) {

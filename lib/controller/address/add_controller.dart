@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:google_maps_webservice/places.dart';
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -44,7 +43,7 @@ class AddAddressController extends GetxController {
     kGooglePlex = CameraPosition(
         target: LatLng(position!.latitude, position!.longitude), zoom: 15.15);
     markers.add(Marker(
-        markerId: MarkerId("1"),
+        markerId: const MarkerId("1"),
         position: LatLng(position!.latitude, position!.longitude)));
     lat = position!.latitude;
     long = position!.longitude;
@@ -62,7 +61,7 @@ class AddAddressController extends GetxController {
 
   addMarker(LatLng latLng) {
     markers.clear();
-    markers.add(Marker(markerId: MarkerId("1"), position: latLng));
+    markers.add(Marker(markerId: const MarkerId("1"), position: latLng));
     lat = latLng.latitude;
     long = latLng.longitude;
     update();

@@ -2,10 +2,8 @@
 
 import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/core/functions/translate_database.dart';
 import 'package:ecommercecourse/data/model/cart_model.dart';
-import 'package:ecommercecourse/view/cart/checkout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +19,7 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CartControllerImp());
     CartModel cartModel;
-    int shipping = 300;
+    int shipping = 10;
     return Scaffold(
         resizeToAvoidBottomInset: true,
         bottomNavigationBar: SingleChildScrollView(

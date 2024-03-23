@@ -148,6 +148,13 @@ class MyTranslation extends Translations {
           "133": "العروضات",
           "134": "قم بالتقييم بحسب عدد النجمات، يمكنك اضافة تعليق اذا اردت.",
           "135": "تقييمك",
+          "136": "ادخل اسم موقعك",
+          "137": "ادخل اسم بلدك",
+          "138": "ادخل اسم محافظتك",
+          "139": "ادخل اسم مدينتك",
+          "140": "ادخل اسم شارعك",
+          "141": "يجب عليك إضافة عنوان للتوصيل",
+          "142": "الإشعارات",
         },
         "en": {
           "normal": "Default Map",
@@ -296,6 +303,13 @@ class MyTranslation extends Translations {
           "134":
               "Tap a star to set your rating. Add more description here if you want.",
           "135": "Your Rating",
+          "136": "Enter Your Address Name",
+          "137": "Enter Your Country",
+          "138": "Enter Your Governorate",
+          "139": "Enter Your City Name",
+          "140": "Enter Your Street Name",
+          "141": "You are required to include a delivery address.",
+          "142": "Notifications",
         }
       };
 }

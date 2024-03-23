@@ -1,7 +1,5 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/controller/homescreen_controller.dart';
 import 'package:ecommercecourse/core/functions/translate_database.dart';
-import 'package:ecommercecourse/data/model/settings_model.dart';
 import 'package:ecommercecourse/view/screens/search_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,6 +38,7 @@ class HomePage extends StatelessWidget {
                   titleAppBar: "42".tr,
                 ),
                 HandlingDataView(
+                  shimmer: true,
                   statusRequest: controller.statusRequest,
                   onOffline: () {
                     controller.onInit();
@@ -58,6 +57,9 @@ class HomePage extends StatelessWidget {
                             ),
                             const ListCategoriesHome(),
                             CustomTitleHome(title: "41".tr),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             const ListItemsHome(),
                           ],
                         )

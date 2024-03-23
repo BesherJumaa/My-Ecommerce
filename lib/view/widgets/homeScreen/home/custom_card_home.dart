@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/constant/color.dart';
 
@@ -22,21 +23,27 @@ class CustomCardHome extends GetView<HomeControllerImp> {
             decoration: BoxDecoration(
                 color: AppColor.primaryColor,
                 borderRadius: BorderRadius.circular(25)),
-            child: ListTile(
-              title: Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  body,
+            child: Shimmer.fromColors(
+              period: const Duration(seconds: 10),
+              // loop: 5,
+              baseColor: AppColor.white,
+              highlightColor: AppColor.thirdColor,
+              child: ListTile(
+                title: Text(
+                  title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
+                  ),
+                ),
+                subtitle: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    body,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),

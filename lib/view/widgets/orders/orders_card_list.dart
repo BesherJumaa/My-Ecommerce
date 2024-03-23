@@ -3,6 +3,7 @@ import 'package:ecommercecourse/view/widgets/orders/orders_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../controller/orders/order_pending_controller.dart';
 import '../../../core/constant/routes.dart';
@@ -58,12 +59,16 @@ class CardOrdersList extends GetView<OrdersPendingController> {
               const Divider(),
               Row(
                 children: [
-                  Text(
-                      "123".trParams(
-                          {"count": ordersModel.ordersTotalprice.toString()}),
-                      style: const TextStyle(
-                          color: AppColor.primaryColor,
-                          fontWeight: FontWeight.bold)),
+                  Shimmer.fromColors(
+                    baseColor: AppColor.primaryColor,
+                    highlightColor: AppColor.secondColor,
+                    child: Text(
+                        "123".trParams(
+                            {"count": ordersModel.ordersTotalprice.toString()}),
+                        style: const TextStyle(
+                            color: AppColor.primaryColor,
+                            fontWeight: FontWeight.bold)),
+                  ),
                   const Spacer(),
                   MaterialButton(
                     onPressed: () {

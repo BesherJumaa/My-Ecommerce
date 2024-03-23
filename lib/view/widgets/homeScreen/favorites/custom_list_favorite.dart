@@ -82,23 +82,29 @@ class CustomListFavorites extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "47".tr,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 21),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      "47".tr,
+                      textAlign: TextAlign.center,
+                      // style: const TextStyle(fontSize: 21),
+                    ),
                   ),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    child: RatingBarIndicator(
-                      rating: double.parse(itemsModel.rating!),
-                      itemBuilder: (context, index) => const Icon(
-                        Icons.star,
-                        color: AppColor.amber,
-                        // color: Colors.amber,
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: RatingBarIndicator(
+                        rating: double.parse(itemsModel.rating!),
+                        itemBuilder: (context, index) => const Icon(
+                          Icons.star,
+                          color: AppColor.amber,
+                          // color: Colors.amber,
+                        ),
+                        itemCount: 5,
+                        itemSize: 20.0,
+                        direction: Axis.horizontal,
                       ),
-                      itemCount: 5,
-                      itemSize: 22.0,
-                      direction: Axis.horizontal,
                     ),
                   ),
                 ],

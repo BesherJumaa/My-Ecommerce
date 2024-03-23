@@ -1,5 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:ecommercecourse/core/class/handlingdataview.dart';
-import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:ecommercecourse/view/widgets/orders/archive_button.dart';
 import 'package:ecommercecourse/view/widgets/orders/orders_card_list.dart';
 import 'package:flutter/material.dart';

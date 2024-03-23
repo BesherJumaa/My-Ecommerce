@@ -34,48 +34,53 @@ class ItemsHome extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        controller.goToProductDetails(itemsModel);
+      },
       child: Stack(
         children: [
           Positioned(
             top: 15,
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              child: Image.network(
-                "${AppLink.imageItems}/${itemsModel.itemsImage}",
-                height: 100,
-                width: 150,
-                fit: BoxFit.fill,
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) {
-                    return child;
-                  } else {
-                    // While the image is still loading, show a loading indicator
-                    return Center(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 12, horizontal: 12),
-                        width: 100, // Adjust the width as needed
-                        height: 100, // Adjust the height as needed
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  (loadingProgress.expectedTotalBytes ?? 1)
-                              : null,
+              child: Hero(
+                tag: "${itemsModel.itemsId}",
+                child: Image.network(
+                  "${AppLink.imageItems}/${itemsModel.itemsImage}",
+                  height: 100,
+                  width: 150,
+                  fit: BoxFit.fill,
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    } else {
+                      // While the image is still loading, show a loading indicator
+                      return Center(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 12),
+                          width: 100, // Adjust the width as needed
+                          height: 100, // Adjust the height as needed
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    (loadingProgress.expectedTotalBytes ?? 1)
+                                : null,
+                          ),
                         ),
-                      ),
-                    );
-                  }
-                },
-                errorBuilder: (BuildContext context, Object error,
-                    StackTrace? stackTrace) {
-                  // Handle the error, e.g., show a placeholder or default image
-                  return Center(
-                      heightFactor: 100,
-                      widthFactor: 150,
-                      child: Lottie.asset(AppImageAssets.server));
-                },
+                      );
+                    }
+                  },
+                  errorBuilder: (BuildContext context, Object error,
+                      StackTrace? stackTrace) {
+                    // Handle the error, e.g., show a placeholder or default image
+                    return Center(
+                        heightFactor: 100,
+                        widthFactor: 150,
+                        child: Lottie.asset(AppImageAssets.server));
+                  },
+                ),
               ),
             ),
           ),

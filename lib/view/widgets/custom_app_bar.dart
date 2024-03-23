@@ -1,20 +1,20 @@
+import 'package:ecommercecourse/view/screens/homeScreens/myfavorite.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/constant/color.dart';
-import '../../core/constant/routes.dart';
+import '../screens/notification.dart';
 import 'auth/customs_text_form.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final String? titleAppBar;
-  final void Function()? onPressedIcon;
+
   final void Function(String)? onChanged;
   final void Function()? onPressedSearch;
   final TextEditingController? myController;
   const CustomSearchBar({
     super.key,
     this.titleAppBar,
-    this.onPressedIcon,
     this.onPressedSearch,
     this.onChanged,
     this.myController,
@@ -41,7 +41,11 @@ class CustomSearchBar extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 10),
           child: IconButton(
-            onPressed: onPressedIcon,
+            onPressed: () {
+              Get.to(const Notifications(),
+                  duration: const Duration(seconds: 2),
+                  transition: Transition.upToDown);
+            },
             icon: const Icon(
               Icons.notifications_active_outlined,
             ),
@@ -52,7 +56,9 @@ class CustomSearchBar extends StatelessWidget {
           margin: const EdgeInsets.only(top: 10),
           child: IconButton(
             onPressed: () {
-              Get.toNamed(AppRoutes.myFavorite);
+              Get.to(const MyFavorite(),
+                  duration: const Duration(seconds: 2),
+                  transition: Transition.upToDown);
             },
             icon: const Icon(
               Icons.favorite_border_outlined,

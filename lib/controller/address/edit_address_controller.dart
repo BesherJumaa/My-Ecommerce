@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/controller/address/view_address_controller.dart';
 import 'package:ecommercecourse/core/class/status_request.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
@@ -63,7 +65,7 @@ class AddressEditController extends GetxController {
       street.text,
     );
     statusRequest = handlingData(response);
-    print("response is  : ${response}");
+    print("response is  : $response");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.offNamed(AppRoutes.addressView);

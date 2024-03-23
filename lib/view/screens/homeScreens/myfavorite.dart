@@ -13,6 +13,9 @@ class MyFavorite extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(MyFavoriteControllerImp());
     return Scaffold(
+      appBar: AppBar(
+        title: Text("45".tr),
+      ),
       // appBar: const CustomAppBarHome(),
       body: GetBuilder<MyFavoriteControllerImp>(builder: (controller) {
         return RefreshIndicator(

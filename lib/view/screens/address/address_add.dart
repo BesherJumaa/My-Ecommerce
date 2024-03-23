@@ -10,7 +10,7 @@ class AddressAdd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AddAddressController controller = Get.put(AddAddressController());
+    Get.put(AddAddressController());
     // TODO: implement build
     return GetBuilder<AddAddressController>(builder: (controller) {
       return Scaffold(
@@ -49,34 +49,32 @@ class AddressAdd extends StatelessWidget {
             value: controller.selectedMapType,
           ),
         ]),
-        body: Container(
-          child: HandlingDataView(
-            statusRequest: controller.statusRequest,
-            widget: Column(
-              children: [
-                // CustomSearchBar(
-                //   titleAppBar: "Search In Map",
-                //   myController: controller.searchMap,
-                //   onPressedIcon: () {
-                //     controller.searchPlaces(controller.searchMap.text);
-                //   },
-                // ),
-                if (controller.kGooglePlex != null)
-                  Expanded(
-                    child: GoogleMap(
-                      initialCameraPosition: controller.kGooglePlex!,
-                      mapType: controller.selectedMapType,
-                      markers: controller.markers.toSet(),
-                      onTap: (latLng) {
-                        controller.addMarker(latLng);
-                      },
-                      onMapCreated: (GoogleMapController controllerMap) {
-                        controller.completerController.complete(controllerMap);
-                      },
-                    ),
+        body: HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: Column(
+            children: [
+              // CustomSearchBar(
+              //   titleAppBar: "Search In Map",
+              //   myController: controller.searchMap,
+              //   onPressedIcon: () {
+              //     controller.searchPlaces(controller.searchMap.text);
+              //   },
+              // ),
+              if (controller.kGooglePlex != null)
+                Expanded(
+                  child: GoogleMap(
+                    initialCameraPosition: controller.kGooglePlex!,
+                    mapType: controller.selectedMapType,
+                    markers: controller.markers.toSet(),
+                    onTap: (latLng) {
+                      controller.addMarker(latLng);
+                    },
+                    onMapCreated: (GoogleMapController controllerMap) {
+                      controller.completerController.complete(controllerMap);
+                    },
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
         ),
       );

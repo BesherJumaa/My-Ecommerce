@@ -43,6 +43,7 @@ class LoginControllerImp extends LoginController {
       String? token = value;
       update();
     });
+
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
@@ -73,7 +74,11 @@ class LoginControllerImp extends LoginController {
                 .setString("email", userModel.usersEmail!);
             myServices.sharedPreferences
                 .setString("phone", userModel.usersPhone!);
+            String? userid = myServices.sharedPreferences.getString("id");
             myServices.sharedPreferences.setString("step", "2");
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users$userid");
+
             Get.snackbar(
                 "Welcome ${myServices.sharedPreferences.getString("username")} !",
                 "57".tr,
@@ -140,6 +145,9 @@ class LoginControllerImp extends LoginController {
       title: "63".tr,
       // text: "64".tr,
       onConfirmBtnTap: () async {
+        String? userid = myServices.sharedPreferences.getString("id");
+        FirebaseMessaging.instance.unsubscribeFromTopic("users");
+        FirebaseMessaging.instance.unsubscribeFromTopic("users$userid");
         myServices.sharedPreferences.setString("step", "1");
         if (myServices.sharedPreferences.getString("step") == "1") {
           Get.rawSnackbar(
@@ -154,6 +162,7 @@ class LoginControllerImp extends LoginController {
               style: const TextStyle(color: AppColor.white),
             ),
           );
+          myServices.sharedPreferences.clear();
           await Future.delayed(const Duration(milliseconds: 500));
           Get.toNamed(AppRoutes.login);
           // update();

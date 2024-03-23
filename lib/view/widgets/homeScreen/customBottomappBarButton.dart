@@ -2,6 +2,7 @@
 
 import 'package:ecommercecourse/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CustomBottomAppBarButton extends StatelessWidget {
   final String title;
@@ -26,14 +27,24 @@ class CustomBottomAppBarButton extends StatelessWidget {
         child: Column(
           // mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              icon,
-              color: active == true ? AppColor.primaryColor : color,
+            Shimmer.fromColors(
+              baseColor: active == true ? AppColor.secondColor : color,
+              highlightColor: active == true ? AppColor.fifthColor : color,
+              period: const Duration(seconds: 4),
+              child: Icon(
+                icon,
+                color: active == true ? AppColor.secondColor : color,
+              ),
             ),
-            Text(
-              title,
-              style: TextStyle(
-                color: active == true ? AppColor.primaryColor : color,
+            Shimmer.fromColors(
+              baseColor: active == true ? AppColor.secondColor : color,
+              highlightColor: active == true ? AppColor.fifthColor : color,
+              period: const Duration(seconds: 4),
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: active == true ? AppColor.secondColor : color,
+                ),
               ),
             ),
           ],

@@ -1,9 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommercecourse/core/class/status_request.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
+
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/address_data.dart';
 import 'package:ecommercecourse/data/model/address_model.dart';
-import 'package:ecommercecourse/linkapi.dart';
+
 import 'package:ecommercecourse/view/screens/address/address_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +26,7 @@ class AddressViewController extends GetxController {
     var response = await addressData
         .getData(myServices.sharedPreferences.getString("id")!);
     statusRequest = handlingData(response);
-    print("response is  : ${response}");
+    print("response is  : $response");
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         List listData = response['data'];

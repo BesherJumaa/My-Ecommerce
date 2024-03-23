@@ -1,6 +1,7 @@
+// ignore_for_file: avoid_print
+
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/constant/routes.dart';
-import 'package:ecommercecourse/view/screens/orders/archive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/class/status_request.dart';

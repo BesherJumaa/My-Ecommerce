@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 Future<bool> alertExitApp() {
   // Get.defaultDialog(title: "60".tr, middleText: "65".tr, actions: [

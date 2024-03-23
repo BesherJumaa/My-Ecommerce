@@ -3,12 +3,14 @@ import 'package:ecommercecourse/core/constant/imageassets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../constant/color.dart';
 
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;
+  final bool? shimmer;
   final double? width;
   final double? height;
   final double? imageWidth;
@@ -24,6 +26,7 @@ class HandlingDataView extends StatelessWidget {
     this.imageHeight,
     this.imageWidth,
     this.onOffline,
+    this.shimmer,
   });
   @override
   Widget build(BuildContext context) {
@@ -34,22 +37,27 @@ class HandlingDataView extends StatelessWidget {
             height: height,
             width: width,
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text("48".tr),
-                  ),
-                  Center(
-                    child: Lottie.asset(
-                      width: imageWidth,
-                      height: imageHeight,
-                      AppImageAssets.loading,
+              child: shimmer == true
+                  ? Shimmer.fromColors(
+                      baseColor: AppColor.primaryColor,
+                      highlightColor: AppColor.secondColor,
+                      child: widget)
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: Text("48".tr),
+                        ),
+                        Center(
+                          child: Lottie.asset(
+                            width: imageWidth,
+                            height: imageHeight,
+                            AppImageAssets.loading,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ),
           )
         : statusRequest == StatusRequest.offlineFailure

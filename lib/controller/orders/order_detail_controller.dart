@@ -34,7 +34,7 @@ class OrdersDetailsController extends GetxController {
         zoom: 12.4746,
       );
       markers.add(Marker(
-          markerId: MarkerId("1"),
+          markerId: const MarkerId("1"),
           position: LatLng(double.parse(ordersModel.addressLat!),
               double.parse(ordersModel.addressLong!))));
     }
@@ -49,6 +49,8 @@ class OrdersDetailsController extends GetxController {
       if (response['status'] == "success") {
         // data.addAll(response['data']);
         List listData = response['data'];
+        print("=============LAT :${ordersModel.addressLat} ============");
+        print("=============Long :${ordersModel.addressLong} ============");
         data.addAll(listData.map((e) => CartModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;

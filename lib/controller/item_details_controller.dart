@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print
 
 import 'package:ecommercecourse/core/class/status_request.dart';
-import 'package:ecommercecourse/core/constant/routes.dart';
 import 'package:ecommercecourse/data/model/items_model.dart';
 import 'package:ecommercecourse/view/cart/cart.dart';
 import 'package:flutter/material.dart';

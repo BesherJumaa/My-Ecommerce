@@ -1,10 +1,8 @@
 // ignore_for_file: avoid_print
 
-import 'package:ecommercecourse/core/class/handlingdataview.dart';
 import 'package:ecommercecourse/data/model/cart_model.dart';
 import 'package:ecommercecourse/controller/search_controller.dart';
 import 'package:ecommercecourse/data/model/coupon_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../core/class/status_request.dart';
@@ -32,6 +30,7 @@ class CartControllerImp extends CartController {
   CouponModel couponModel = CouponModel();
   late TextEditingController coupon;
   double totalPrice = 0.0;
+  double shipping = 0.0;
   int totalcountItems = 0;
   int discountCoupon = 0;
   String? couponName;
@@ -73,6 +72,7 @@ class CartControllerImp extends CartController {
           data.addAll(responseData.map((e) => CartModel.fromJson(e)));
           totalcountItems = int.parse(responseDataCountPrice['totalcount']);
           totalPrice = double.parse(responseDataCountPrice['totalprice']);
+          shipping = double.parse(responseDataCountPrice['totalprice']);
         }
 
         // discount = int.parse(responseDataCountPrice['items_discount']);

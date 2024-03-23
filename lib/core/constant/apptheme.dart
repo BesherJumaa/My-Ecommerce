@@ -32,8 +32,6 @@ ThemeData themeEnglish = ThemeData(
       borderRadius: BorderRadius.circular(30.0),
     ),
   ),
-  primarySwatch: AppColor.primarymaterialcolor,
-  backgroundColor: AppColor.backGroundColor,
   primaryColor: AppColor.primaryColor,
   dialogBackgroundColor: AppColor.backGroundColor,
   floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -41,7 +39,7 @@ ThemeData themeEnglish = ThemeData(
     backgroundColor: AppColor.thirdColor,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
   ),
-  fontFamily: "PlayfairDisplay",
+  fontFamily: "Lato",
   textTheme: const TextTheme(
     // bodyText2: TextStyle(color: AppColor.white),
     button: TextStyle(color: AppColor.white),
@@ -53,6 +51,9 @@ ThemeData themeEnglish = ThemeData(
     bodyText1: TextStyle(height: 1.8, color: AppColor.gray),
     headline2: TextStyle(fontWeight: FontWeight.bold),
   ),
+  colorScheme:
+      ColorScheme.fromSwatch(primarySwatch: AppColor.primarymaterialcolor)
+          .copyWith(background: AppColor.backGroundColor),
 );
 
 ThemeData themeArabic = ThemeData(
@@ -81,8 +82,6 @@ ThemeData themeArabic = ThemeData(
       borderRadius: BorderRadius.circular(30.0),
     ),
   ),
-  primarySwatch: AppColor.primarymaterialcolor,
-  backgroundColor: AppColor.backGroundColor,
   primaryColor: AppColor.primaryColor,
   dialogBackgroundColor: AppColor.backGroundColor,
   floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -100,4 +99,7 @@ ThemeData themeArabic = ThemeData(
     bodyText1: TextStyle(height: 1.8, color: AppColor.gray),
     headline2: TextStyle(fontWeight: FontWeight.bold),
   ),
+  colorScheme:
+      ColorScheme.fromSwatch(primarySwatch: AppColor.primarymaterialcolor)
+          .copyWith(background: AppColor.backGroundColor),
 );

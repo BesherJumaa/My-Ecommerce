@@ -30,7 +30,7 @@ class ForgotPassword extends StatelessWidget {
         backgroundColor: AppColor.backGroundColor,
         title: Text(
           "Sign Up",
-          style: Theme.of(context).textTheme.headline1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColor.gray,
               ),
         ),

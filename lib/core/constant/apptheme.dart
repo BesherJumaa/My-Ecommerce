@@ -1,7 +1,5 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
-
 import 'color.dart';
 
 ThemeData themeEnglish = ThemeData(
@@ -42,14 +40,14 @@ ThemeData themeEnglish = ThemeData(
   fontFamily: "Lato",
   textTheme: const TextTheme(
     // bodyText2: TextStyle(color: AppColor.white),
-    button: TextStyle(color: AppColor.white),
+    labelLarge: TextStyle(color: AppColor.white),
 
-    headline1: TextStyle(
+    displayLarge: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 20, color: AppColor.black),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26, color: AppColor.black),
-    bodyText1: TextStyle(height: 1.8, color: AppColor.gray),
-    headline2: TextStyle(fontWeight: FontWeight.bold),
+    bodyLarge: TextStyle(height: 1.8, color: AppColor.gray),
+    displayMedium: TextStyle(fontWeight: FontWeight.bold),
   ),
   colorScheme:
       ColorScheme.fromSwatch(primarySwatch: AppColor.primarymaterialcolor)
@@ -91,13 +89,13 @@ ThemeData themeArabic = ThemeData(
   ),
   fontFamily: "Cairo",
   textTheme: const TextTheme(
-    button: TextStyle(color: AppColor.white),
-    headline1: TextStyle(
+    labelLarge: TextStyle(color: AppColor.white),
+    displayLarge: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 20, color: AppColor.black),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26, color: AppColor.black),
-    bodyText1: TextStyle(height: 1.8, color: AppColor.gray),
-    headline2: TextStyle(fontWeight: FontWeight.bold),
+    bodyLarge: TextStyle(height: 1.8, color: AppColor.gray),
+    displayMedium: TextStyle(fontWeight: FontWeight.bold),
   ),
   colorScheme:
       ColorScheme.fromSwatch(primarySwatch: AppColor.primarymaterialcolor)

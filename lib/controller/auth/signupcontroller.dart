@@ -77,7 +77,6 @@ class SignUpControllerImp extends SignUpController {
       print("Not Valid");
     }
     update();
-    throw UnimplementedError();
   }
 
   @override

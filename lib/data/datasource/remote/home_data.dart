@@ -15,7 +15,10 @@ class HomeData {
     const maxRetries = 10;
     for (var i = 0; i < maxRetries; i++) {
       try {
-        var response = await crud.postData(AppLink.home, {});
+        var response = await crud.postData(
+          AppLink.home,
+          {},
+        );
         return response.fold((l) => l, (r) => r);
       } catch (e) {
         await Future.delayed(const Duration(seconds: 2));

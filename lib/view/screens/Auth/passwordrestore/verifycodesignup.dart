@@ -27,7 +27,7 @@ class VerifyCodeSignUp extends StatelessWidget {
         backgroundColor: AppColor.backGroundColor,
         title: Text(
           "51".tr,
-          style: Theme.of(context).textTheme.headline1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColor.gray,
               ),
         ),

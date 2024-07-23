@@ -24,7 +24,7 @@ class BodyItemDetails extends GetView<ItemDetailsControllerImp> {
             "${translateDatabase(controller.itemsModel.itemsNameAr, controller.itemsModel.itemsName)}",
             style: Theme.of(context)
                 .textTheme
-                .headline1
+                .bodyLarge
                 ?.copyWith(color: AppColor.fourthColor),
           ),
           const SizedBox(
@@ -51,7 +51,7 @@ class BodyItemDetails extends GetView<ItemDetailsControllerImp> {
           }),
           Text(
               "${translateDatabase(controller.itemsModel.itemsDescAr, controller.itemsModel.itemsDesc)}",
-              style: Theme.of(context).textTheme.bodyText1),
+              style: Theme.of(context).textTheme.bodyLarge),
           const SizedBox(
             height: 10,
           ),
@@ -59,7 +59,7 @@ class BodyItemDetails extends GetView<ItemDetailsControllerImp> {
             "39".tr,
             style: Theme.of(context)
                 .textTheme
-                .headline1
+                .bodyLarge
                 ?.copyWith(color: AppColor.fourthColor),
           ),
         ],

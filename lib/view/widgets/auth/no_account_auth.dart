@@ -21,7 +21,7 @@ class NoAccountAuth extends StatelessWidget {
           onTap: onTap,
           child: Text(
             buttonText,
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         )
       ],

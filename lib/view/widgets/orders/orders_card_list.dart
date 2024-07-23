@@ -7,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../controller/orders/order_pending_controller.dart';
 import '../../../core/constant/routes.dart';
+import '../../../core/functions/convert_numbers.dart';
 import '../../../data/model/orders_model.dart';
 
 class CardOrdersList extends GetView<OrdersPendingController> {
@@ -15,6 +16,9 @@ class CardOrdersList extends GetView<OrdersPendingController> {
 
   @override
   Widget build(BuildContext context) {
+    // Jiffy.locale('ar');
+    String formattedDate = Jiffy.parse(ordersModel.ordersDatetime!).fromNow();
+    formattedDate = replaceArabicNumbers(formattedDate);
     return Card(
       child: Container(
           padding: const EdgeInsets.all(10),
@@ -31,7 +35,7 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                   const Spacer(),
                   // Text(listdata.ordersDatetime!)
                   Text(
-                    Jiffy(ordersModel.ordersDatetime!, "yyyy-MM-dd").fromNow(),
+                    formattedDate,
                     style: const TextStyle(
                         color: AppColor.primaryColor,
                         fontWeight: FontWeight.bold),

@@ -22,7 +22,7 @@ class SuccessSignUp extends StatelessWidget {
         title: Text('32'.tr,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .bodyLarge!
                 .copyWith(color: AppColor.gray)),
       ),
       body: Container(
@@ -37,7 +37,7 @@ class SuccessSignUp extends StatelessWidget {
           Text("37".tr,
               style: Theme.of(context)
                   .textTheme
-                  .headline1!
+                  .bodyLarge!
                   .copyWith(fontSize: 30)),
           Text("38".tr),
           const Spacer(),

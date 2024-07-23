@@ -177,22 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.3"
-  device_frame:
-    dependency: transitive
-    description:
-      name: device_frame
-      sha256: f0628754a69c521baba1bd842840d118ea676d77786e0e0a03e4ff8453e2904d
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.2"
-  device_preview:
-    dependency: "direct main"
-    description:
-      name: device_preview
-      sha256: ccd301885479b8b024e31bc7793354b2312417b33bdea8a5e348275c12cd3fae
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.5"
   dropdown_search:
     dependency: "direct main"
     description:
@@ -366,11 +350,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
-  flutter_localizations:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_otp_text_field:
     dependency: "direct main"
     description:
@@ -437,14 +416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.7.0"
-  freezed_annotation:
-    dependency: transitive
-    description:
-      name: freezed_annotation
-      sha256: "02d17a242f724828a7c820921dbe92c66fe685d6bef3d7450dc556fa79e033ce"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.15.0"
   geocoding:
     dependency: "direct main"
     description:
@@ -673,18 +644,18 @@ packages:
     dependency: transitive
     description:
       name: intl
-      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.1"
+    version: "0.19.0"
   jiffy:
     dependency: "direct main"
     description:
       name: jiffy
-      sha256: c3c1da3fe0c08bba3c2c455e8a3e724dfe7ea34dbe8069b992cab90ea1fe40b6
+      sha256: "3497caaa36d36a29033e66803c9739ce6bccbc7e241ca46070f76ee9e6f6eb0c"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.1"
+    version: "6.3.1"
   js:
     dependency: transitive
     description:
@@ -781,14 +752,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -909,14 +872,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
-  provider:
-    dependency: transitive
-    description:
-      name: provider
-      sha256: "59471e0a4595e264625d3496af567ac85bdae1148ec985aff1e0555786f53ecf"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.0"
   qr:
     dependency: transitive
     description:
@@ -1254,10 +1209,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: a2662fb1f114f4296cf3f5a50786a2d888268d7776cf681aa17d660ffa23b246
+      sha256: "3923c89304b715fb1eb6423f017651664a03bf5f4b29983627c4da791f74a4ec"
       url: "https://pub.dev"
     source: hosted
-    version: "14.0.0"
+    version: "14.2.1"
   web:
     dependency: transitive
     description:

@@ -29,8 +29,7 @@ class CardNotifications extends GetView<OrdersPendingController> {
                   const Spacer(),
                   // Text(listdata.ordersDatetime!)
                   Text(
-                    Jiffy(notificationModel.notificationDate!, "yyyy-MM-dd")
-                        .fromNow(),
+                    Jiffy.parse(notificationModel.notificationDate!).fromNow(),
                     style: const TextStyle(
                         color: AppColor.primaryColor,
                         fontWeight: FontWeight.bold),

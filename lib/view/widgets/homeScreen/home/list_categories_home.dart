@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
+import 'package:lottie/lottie.dart';
 import '../../../../core/constant/color.dart';
+import '../../../../core/constant/imageassets.dart';
 import '../../../../core/functions/translate_database.dart';
 import '../../../../data/model/categories_model.dart';
 import '../../../../linkapi.dart';
@@ -58,21 +60,7 @@ class CategoriesHome extends GetView<HomeControllerImp> {
               borderRadius: BorderRadius.circular(20),
               color: AppColor.thirdColor,
             ),
-            child: SvgPicture.network(
-              placeholderBuilder: (BuildContext context) {
-                return Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 12),
-                    width: 60, // Adjust the width as needed
-                    height: 70, // Adjust the height as needed
-                    child: const CircularProgressIndicator(),
-                  ),
-                );
-              },
-              "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
-              color: AppColor.white,
-            ),
+            child: buildImageWidget(categoriesModel),
           ),
           Text(translateDatabase(categoriesModel.categoriesNameAr!,
               categoriesModel.categoriesName!)),
@@ -81,6 +69,61 @@ class CategoriesHome extends GetView<HomeControllerImp> {
           ),
         ],
       ),
+    );
+  }
+}
+
+Widget buildImageWidget(CategoriesModel categoriesModel) {
+  if (categoriesModel.categoriesImage!.endsWith('.svg')) {
+    // If the image is an SVG file
+    return SvgPicture.network(
+      "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
+      placeholderBuilder: (BuildContext context) {
+        return Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+            width: 60,
+            height: 70,
+            child: const CircularProgressIndicator(),
+          ),
+        );
+      },
+      color: AppColor.white,
+    );
+  } else {
+    // If the image is of other types
+    return CachedNetworkImage(
+      imageUrl: "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
+      height: 100,
+      fit: BoxFit.fill,
+      progressIndicatorBuilder: (BuildContext context, String url,
+          DownloadProgress? loadingProgress) {
+        if (loadingProgress == null) {
+          return Container(
+            color: AppColor.primaryColor,
+          ); // Placeholder, you can customize it
+        } else {
+          // While the image is still loading, show a loading indicator
+          return Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+              width: 100, // Adjust the width as needed
+              height: 100, // Adjust the height as needed
+              child: CircularProgressIndicator(
+                value: loadingProgress.progress,
+              ),
+            ),
+          );
+        }
+      },
+      errorWidget: (BuildContext context, String url, dynamic error) {
+        // Handle the error, e.g., show a placeholder or default image
+        return Center(
+          heightFactor: 100,
+          widthFactor: 150,
+          child: Lottie.asset(AppImageAssets.server),
+        );
+      },
     );
   }
 }

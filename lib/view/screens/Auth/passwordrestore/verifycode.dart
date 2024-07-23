@@ -27,7 +27,7 @@ class VerifyCode extends StatelessWidget {
         backgroundColor: AppColor.backGroundColor,
         title: Text(
           "Verification Code",
-          style: Theme.of(context).textTheme.headline1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColor.gray,
               ),
         ),

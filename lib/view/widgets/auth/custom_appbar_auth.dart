@@ -19,7 +19,7 @@ class CustomAppBarAuth extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: AppColor.backGroundColor,
       title: Text(
         title,
-        style: Theme.of(context).textTheme.headline1!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: AppColor.gray,
             ),
       ),

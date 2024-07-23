@@ -11,7 +11,7 @@ class CustomTitleAuth extends StatelessWidget {
     // TODO: implement build
     return Text(
       title!,
-      style: Theme.of(context).textTheme.headline3,
+      style: Theme.of(context).textTheme.titleLarge,
     );
   }
 }
